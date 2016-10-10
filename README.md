@@ -1,2 +1,2 @@
-# C-_Win32_programming
-特別プログラミングの課題作成リポジトリ
+# C++_Win32_programming
+(C++)特別プログラミングの課題作成リポジトリ
