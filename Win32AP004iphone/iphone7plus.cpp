@@ -1,20 +1,17 @@
 /*---------------------------------------------
-spiral_text.cpp
+Iphone7plus.cpp
 -----------------------------------------------*/
 
-#define _USE_MATH_DEFINES
 #include <windows.h>
 #include <tchar.h>
-#include <math.h>
 
 // プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 // 大域変数
-static TCHAR szWindowClass[] = _T("spiral_text");
-static TCHAR szTitle[] = _T("spiral_text");
+static TCHAR szWindowClass[] = _T("iPhone7Plus");
+static TCHAR szTitle[] = _T("iPhone7Plus");
 HINSTANCE	hInst;
-int width, height;
 
 int WINAPI WinMain(HINSTANCE hInstance,
 	HINSTANCE hPrevInstance,
@@ -61,10 +58,10 @@ int WINAPI WinMain(HINSTANCE hInstance,
 		szWindowClass,					// ウィンドウクラス名
 		szTitle,							// タイトルバーに表示する文字列
 		WS_OVERLAPPEDWINDOW,		// ウィンドウの種類
-		CW_USEDEFAULT,				// ウィンドウを表示する位置(X座標）
-		CW_USEDEFAULT,				// ウィンドウを表示する位置(Y座標）
-		width = CW_USEDEFAULT,				// ウィンドウの幅
-		height = CW_USEDEFAULT,				// ウィンドウの高さ
+		100,								// ウィンドウを表示する位置(X座標)
+		100,								// ウィンドウを表示する位置(Y座標)
+	    350,								// ウィンドウの幅
+		700,								// ウィンドウの高さ
 		NULL,							// 親ウィンドウのウィンドウハンドル
 		NULL,							// メニューハンドル
 		hInst,							// インスタンスハンドル
@@ -94,59 +91,41 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
 // ウィンドウプロシージャ
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
-	static LPCTSTR TEST_STR = _T("infinity");
-	static LOGFONT logfont;	// フォント情報の構造体
 	HDC hDC;
-	HFONT hFont;
-	double angle;
-	float radius = 10;
-	int centx = width / 2;
-	int centy = height / 2;
-	int i = 0;
+	HBRUSH  hBrushBlack;
+	HBRUSH  hBrushYellow;
+	HBRUSH  hBrushWhite;
+	PAINTSTRUCT ps;
 
 	switch (message) {
-	case WM_CREATE:			// ウィンドウが作成されたとき
-		ZeroMemory(&logfont, sizeof(logfont));	// フォント情報構造体を０で初期化
-		logfont.lfCharSet = DEFAULT_CHARSET;	// システムのデフォルト文字セットを使う
-		//logfont.lfWeight = 700;
-		wsprintf(logfont.lfFaceName, _T("Times New Roman"));
-		break;
+	case WM_PAINT:
+		hDC = BeginPaint(hWnd, &ps);		// GDI関数による描画を開始する
 
-	case WM_LBUTTONDOWN:	// マウスの左ボタンが押されたとき
-		hDC = GetDC(hWnd);
-		int i;
-		double j,x,y,r;
-		i = 0;
+		hBrushBlack = CreateSolidBrush(RGB(0, 0, 0));
+		SelectObject(hDC, hBrushBlack);
+		RoundRect(hDC, 10, 10, 322, 643, 70, 80);    //iPhone7の外枠
+		Rectangle(hDC, 7, 85, 20, 110);               //マナーモードON/OFFキー
+		Rectangle(hDC, 7, 135, 20, 185);               //音量＋ボタン
+		Rectangle(hDC, 7, 200, 20, 250);               //音量－ボタン
+		Rectangle(hDC, 321, 120, 325, 170);               //電源ボタン
 
-		for (angle = 0; angle <= 360; angle += 10) {
-			//len = (int)(angle*3+5);
-			for (j = 1; j<5; j += 0.5)
-			{
-				r = pow(j,angle);
-				x = r*cos(angle)+200;
-				y = r*sin(angle)+200;
-				SetPixel(hDC, (int)x, (int)y, RGB(255, 0, 0));  // 点を打つ
-			}
-			//float rad = angle*M_PI / 180;
-			//float x = centx + (radius * cos(rad));
-			//float y = centy + (radius * sin(rad));
-			//float r = exp(angle);
-			//Ellipse(hDC, angle, angle, angle+100, angle+100);
-			//radius += 0.5;
-			hFont = CreateFontIndirect(&logfont); 	// 論理フォントを作成する
-			SelectObject(hDC, hFont);
-			logfont.lfOrientation = 200;
-			TextOut(
-				hDC,
-				LOWORD(lParam),
-				HIWORD(lParam),
-				TEST_STR,
-				(int)_tcslen(TEST_STR));
-			DeleteObject(hFont); // 作成した論理フォントを削除する
+		hBrushWhite = CreateSolidBrush(RGB(255, 255, 255));
+		SelectObject(hDC, hBrushWhite);
+		Ellipse(hDC, 162, 25, 170, 33);              //中央上部の丸
+		Ellipse(hDC, 100, 35, 115, 50);              //中央上部下の丸
+		RoundRect(hDC, 129, 39, 207, 46, 10, 80);
+		Ellipse(hDC, 139, 579, 193, 633);            //ボタンの外丸
 
-			//i++;
-		}
-		ReleaseDC(hWnd, hDC);
+		hBrushYellow = CreateSolidBrush(RGB(255, 255, 0));
+		SelectObject(hDC, hBrushYellow);
+		Rectangle(hDC, 29, 83, 303, 569);            //iPhone7の画面サイズ
+
+		hBrushBlack = CreateSolidBrush(RGB(0, 0, 0));
+		SelectObject(hDC, hBrushBlack);
+		Ellipse(hDC, 144, 584, 188, 628);            //ボタンの内丸
+
+
+		EndPaint(hWnd, &ps);				// GDI関数による描画を終了する
 		break;
 
 	case WM_DESTROY:
