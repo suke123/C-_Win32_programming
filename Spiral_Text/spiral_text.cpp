@@ -2,19 +2,16 @@
 spiral_text.cpp
 -----------------------------------------------*/
 
-#define _USE_MATH_DEFINES
 #include <windows.h>
 #include <tchar.h>
-#include <math.h>
 
 // プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 // 大域変数
-static TCHAR szWindowClass[] = _T("spiral_text");
-static TCHAR szTitle[] = _T("spiral_text");
+static TCHAR szWindowClass[] = _T("Win32AP032");
+static TCHAR szTitle[] = _T("Win32AP032");
 HINSTANCE	hInst;
-int width, height;
 
 int WINAPI WinMain(HINSTANCE hInstance,
 	HINSTANCE hPrevInstance,
@@ -63,8 +60,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
 		WS_OVERLAPPEDWINDOW,		// ウィンドウの種類
 		CW_USEDEFAULT,				// ウィンドウを表示する位置(X座標）
 		CW_USEDEFAULT,				// ウィンドウを表示する位置(Y座標）
-		width = CW_USEDEFAULT,				// ウィンドウの幅
-		height = CW_USEDEFAULT,				// ウィンドウの高さ
+		CW_USEDEFAULT,				// ウィンドウの幅
+		CW_USEDEFAULT,				// ウィンドウの高さ
 		NULL,							// 親ウィンドウのウィンドウハンドル
 		NULL,							// メニューハンドル
 		hInst,							// インスタンスハンドル
@@ -94,57 +91,33 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
 // ウィンドウプロシージャ
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
-	static LPCTSTR TEST_STR = _T("infinity");
+	static LPCTSTR TEST_STR = _T("TestMessage : 左ボタンが押されました");
 	static LOGFONT logfont;	// フォント情報の構造体
 	HDC hDC;
 	HFONT hFont;
-	double angle;
-	float radius = 10;
-	int centx = width / 2;
-	int centy = height / 2;
-	int i = 0;
+	int angle;
 
 	switch (message) {
 	case WM_CREATE:			// ウィンドウが作成されたとき
 		ZeroMemory(&logfont, sizeof(logfont));	// フォント情報構造体を０で初期化
 		logfont.lfCharSet = DEFAULT_CHARSET;	// システムのデフォルト文字セットを使う
 		//logfont.lfWeight = 700;
-		wsprintf(logfont.lfFaceName, _T("Times New Roman"));
+		wsprintf(logfont.lfFaceName, _T("MS Pゴシック"));
 		break;
 
 	case WM_LBUTTONDOWN:	// マウスの左ボタンが押されたとき
 		hDC = GetDC(hWnd);
-		int i;
-		double j,x,y,r;
-		i = 0;
-
-		for (angle = 0; angle <= 360; angle += 10) {
-			//len = (int)(angle*3+5);
-			for (j = 1; j<5; j += 0.5)
-			{
-				r = pow(j,angle);
-				x = r*cos(angle)+200;
-				y = r*sin(angle)+200;
-				SetPixel(hDC, (int)x, (int)y, RGB(255, 0, 0));  // 点を打つ
-			}
-			//float rad = angle*M_PI / 180;
-			//float x = centx + (radius * cos(rad));
-			//float y = centy + (radius * sin(rad));
-			//float r = exp(angle);
-			//Ellipse(hDC, angle, angle, angle+100, angle+100);
-			//radius += 0.5;
+		for (angle = -2; angle <= 3600; angle += 100) {
 			hFont = CreateFontIndirect(&logfont); 	// 論理フォントを作成する
 			SelectObject(hDC, hFont);
-			logfont.lfOrientation = 200;
+			logfont.lfEscapement = angle;
 			TextOut(
 				hDC,
 				LOWORD(lParam),
 				HIWORD(lParam),
 				TEST_STR,
 				(int)_tcslen(TEST_STR));
-			DeleteObject(hFont); // 作成した論理フォントを削除する
-
-			//i++;
+			DeleteObject(hFont); 					// 作成した論理フォントを削除する
 		}
 		ReleaseDC(hWnd, hDC);
 		break;
