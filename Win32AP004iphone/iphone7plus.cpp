@@ -100,48 +100,54 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	PAINTSTRUCT ps;
 
 	switch (message) {
-	case WM_PAINT:
-		hDC = BeginPaint(hWnd, &ps);		// GDI関数による描画を開始する
+	case WM_PAINT:{
 
-		hBrushBlack = CreateSolidBrush(RGB(0, 0, 0));
-		SelectObject(hDC, hBrushBlack);
-		RoundRect(hDC, 10, 10, 322, 643, 70, 80);    //iPhone7の外枠
-		Rectangle(hDC, 7, 85, 20, 110);               //マナーモードON/OFFキー
-		Rectangle(hDC, 7, 135, 20, 185);               //音量＋ボタン
-		Rectangle(hDC, 7, 200, 20, 250);               //音量－ボタン
-		Rectangle(hDC, 321, 120, 325, 170);               //電源ボタン
+					  hDC = BeginPaint(hWnd, &ps);		// GDI関数による描画を開始する
 
-		hBrushWhite = CreateSolidBrush(RGB(255, 255, 255));
-		SelectObject(hDC, hBrushWhite);
-		Ellipse(hDC, 162, 25, 170, 33);              //中央上部の丸
-		Ellipse(hDC, 100, 35, 115, 50);              //中央上部下の丸
-		RoundRect(hDC, 129, 39, 207, 46, 10, 80);
-		Ellipse(hDC, 139, 579, 193, 633);            //ボタンの外丸
+					  hBrushBlack = CreateSolidBrush(RGB(0, 0, 0));
+					  SelectObject(hDC, hBrushBlack);
+					  RoundRect(hDC, 10, 10, 322, 643, 70, 80);    //iPhone7の外枠
+					  Rectangle(hDC, 7, 85, 20, 110);               //マナーモードON/OFFキー
+					  Rectangle(hDC, 7, 135, 20, 185);               //音量＋ボタン
+					  Rectangle(hDC, 7, 200, 20, 250);               //音量－ボタン
+					  Rectangle(hDC, 321, 120, 325, 170);               //電源ボタン
 
-		hBrushYellow = CreateSolidBrush(RGB(255, 255, 0));
-		SelectObject(hDC, hBrushYellow);
-		Rectangle(hDC, 29, 83, 303, 569);            //iPhone7の画面サイズ
-		/*螺旋を描く*/
-		//MoveToEx(hDC, 137, 243, NULL);     //開始点に移動
-		//for (int theta = 0; theta < 360; theta += 10){
-			for (double a2 = 0; a2 < 30; a2 += 0.1){
-				//double rad = theta / 180 * M_PI;
-				double a1 = 1.2;
-				double x = pow(a1, a2*cos(a2))*-1 + 200;
-				double y = pow(a1, a2*sin(a2)) + 350;
-				Ellipse(hDC, 137, 243, x, y);
-				//LineTo(hDC, x, y);            //線を描く
-			}
-		//}
+					  hBrushWhite = CreateSolidBrush(RGB(255, 255, 255));
+					  SelectObject(hDC, hBrushWhite);
+					  Ellipse(hDC, 162, 25, 170, 33);              //中央上部の丸
+					  Ellipse(hDC, 100, 35, 115, 50);              //中央上部下の丸
+					  RoundRect(hDC, 129, 39, 207, 46, 10, 80);
+					  Ellipse(hDC, 139, 579, 193, 633);            //ボタンの外丸
 
-		hBrushBlack = CreateSolidBrush(RGB(0, 0, 0));
-		SelectObject(hDC, hBrushBlack);
-		Ellipse(hDC, 144, 584, 188, 628);            //ボタンの内丸
+					  hBrushYellow = CreateSolidBrush(RGB(255, 255, 0));
+					  SelectObject(hDC, hBrushYellow);
+					  Rectangle(hDC, 29, 83, 303, 569);            //iPhone7の画面サイズ
+					  /*螺旋を描く*/
+					  //MoveToEx(hDC, 137, 243, NULL);     //開始点に移動
+					  //for (int theta = 0; theta < 360; theta += 10){
+					  double x0 = 137.0;
+					  double y0 = 243.0;
+					  for (double a2 = 0; a2 < 30; a2 += 0.1){
+						  //MoveToEx(hDC, x0, y0, NULL);     //開始点に移動
+						  //double rad = theta / 180 * M_PI;
+						  double a1 = 1.2;
+						  double x1 = pow(a1, a2*cos(a2))*-1 + 200;
+						  double y1 = pow(a1, a2*sin(a2)) + 350;
+						  //SetPixel(hDC, x, y, 0xFF);
+						  LineTo(hDC, x1, y1);            //線を描く
+
+						  //x0 = x1;
+						  //y0 = y1;
+					  }
+					  //}
+
+					  hBrushBlack = CreateSolidBrush(RGB(0, 0, 0));
+					  SelectObject(hDC, hBrushBlack);
+					  Ellipse(hDC, 144, 584, 188, 628);            //ボタンの内丸
 
 
-
-		EndPaint(hWnd, &ps);				// GDI関数による描画を終了する
-		break;
+					  EndPaint(hWnd, &ps);				// GDI関数による描画を終了する
+	}break;
 
 	case WM_DESTROY:
 		PostQuitMessage(0);
