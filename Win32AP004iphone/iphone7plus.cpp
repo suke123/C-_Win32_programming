@@ -2,8 +2,10 @@
 Iphone7plus.cpp
 -----------------------------------------------*/
 
+#define _USE_MATH_DEFINES
 #include <windows.h>
 #include <tchar.h>
+#include <math.h>
 
 // プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
@@ -119,10 +121,23 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 		hBrushYellow = CreateSolidBrush(RGB(255, 255, 0));
 		SelectObject(hDC, hBrushYellow);
 		Rectangle(hDC, 29, 83, 303, 569);            //iPhone7の画面サイズ
+		/*螺旋を描く*/
+		//MoveToEx(hDC, 137, 243, NULL);     //開始点に移動
+		//for (int theta = 0; theta < 360; theta += 10){
+			for (double a2 = 0; a2 < 30; a2 += 0.1){
+				//double rad = theta / 180 * M_PI;
+				double a1 = 1.2;
+				double x = pow(a1, a2*cos(a2))*-1 + 200;
+				double y = pow(a1, a2*sin(a2)) + 350;
+				Ellipse(hDC, 137, 243, x, y);
+				//LineTo(hDC, x, y);            //線を描く
+			}
+		//}
 
 		hBrushBlack = CreateSolidBrush(RGB(0, 0, 0));
 		SelectObject(hDC, hBrushBlack);
 		Ellipse(hDC, 144, 584, 188, 628);            //ボタンの内丸
+
 
 
 		EndPaint(hWnd, &ps);				// GDI関数による描画を終了する
