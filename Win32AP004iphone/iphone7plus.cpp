@@ -63,7 +63,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 		100,								// ウィンドウを表示する位置(X座標)
 		100,								// ウィンドウを表示する位置(Y座標)
 	    350,								// ウィンドウの幅
-		700,								// ウィンドウの高さ
+		690,								// ウィンドウの高さ
 		NULL,							// 親ウィンドウのウィンドウハンドル
 		NULL,							// メニューハンドル
 		hInst,							// インスタンスハンドル
@@ -122,26 +122,25 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 					  hBrushYellow = CreateSolidBrush(RGB(255, 255, 0));
 					  SelectObject(hDC, hBrushYellow);
 					  Rectangle(hDC, 29, 83, 303, 569);            //iPhone7の画面サイズ
+
 					  /*螺旋を描く*/
 					  //MoveToEx(hDC, 137, 243, NULL);     //開始点に移動
 					  //for (int theta = 0; theta < 360; theta += 10){
-					  double x0 = 137.0;
-					  double y0 = 243.0;
-					  for (double a2 = 0; a2 < 30; a2 += 0.1){
+					  double x0 = 170;
+					  double y0 = 310;
+					  MoveToEx(hDC, x0, y0, NULL);     //開始点に移動
+					  for (double theta = 0; theta < 59; theta += 0.01){
 						  //MoveToEx(hDC, x0, y0, NULL);     //開始点に移動
-						  //double rad = theta / 180 * M_PI;
-						  double a1 = 1.2;
-						  double x1 = pow(a1, a2*cos(a2))*-1 + 200;
-						  double y1 = pow(a1, a2*sin(a2)) + 350;
-						  //SetPixel(hDC, x, y, 0xFF);
-						  LineTo(hDC, x1, y1);            //線を描く
-
-						  //x0 = x1;
-						  //y0 = y1;
+						  double a1 = 1.1;
+						  double x1 = pow(a1, theta)*cos(theta) + x0;       //x座標を設定
+						  double y1 = pow(a1, theta)*sin(theta) + y0;       //y座標を設定
+						  if (x1 < 10 || x1 > 322 || y1 < 10 || y1 > 643){  //外枠の外は螺旋を白で描く
+							  SelectObject(hDC, hBrushWhite);
+							  LineTo(hDC, x1, y1);
+						  }
+						  LineTo(hDC, x1, y1);            //現時点の座標から(x1, y1)に線を描く
 					  }
-					  //}
 
-					  hBrushBlack = CreateSolidBrush(RGB(0, 0, 0));
 					  SelectObject(hDC, hBrushBlack);
 					  Ellipse(hDC, 144, 584, 188, 628);            //ボタンの内丸
 
