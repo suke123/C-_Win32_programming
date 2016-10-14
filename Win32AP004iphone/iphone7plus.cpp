@@ -131,11 +131,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 						  double a1 = 1.1;
 						  double x1 = pow(a1, theta)*cos(theta) + x0;       //x座標を設定
 						  double y1 = pow(a1, theta)*sin(theta) + y0;       //y座標を設定
-						  if (x1 < 10 || x1 > 322 || y1 < 10 || y1 > 643){  //外枠の外は螺旋を白で描く
-							  SelectObject(hDC, hBrushWhite);
-							  LineTo(hDC, x1, y1);
+						  if ((x1 >= 10 && x1 <= 322) && (y1 >= 10 && y1 <= 643)){  //外枠の外は螺旋を白で描く
+							  LineTo(hDC, x1, y1);            //現時点の座標から(x1, y1)に線を描く
 						  }
-						  LineTo(hDC, x1, y1);            //現時点の座標から(x1, y1)に線を描く
 					  }
 
 					  SelectObject(hDC, hBrushBlack);
