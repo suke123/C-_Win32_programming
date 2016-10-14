@@ -124,13 +124,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 					  Rectangle(hDC, 29, 83, 303, 569);            //iPhone7の画面サイズ
 
 					  /*螺旋を描く*/
-					  //MoveToEx(hDC, 137, 243, NULL);     //開始点に移動
-					  //for (int theta = 0; theta < 360; theta += 10){
 					  double x0 = 170;
 					  double y0 = 310;
 					  MoveToEx(hDC, x0, y0, NULL);     //開始点に移動
 					  for (double theta = 0; theta < 59; theta += 0.01){
-						  //MoveToEx(hDC, x0, y0, NULL);     //開始点に移動
 						  double a1 = 1.1;
 						  double x1 = pow(a1, theta)*cos(theta) + x0;       //x座標を設定
 						  double y1 = pow(a1, theta)*sin(theta) + y0;       //y座標を設定
