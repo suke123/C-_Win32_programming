@@ -103,7 +103,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	HBRUSH  hBrushYellow;
 	HBRUSH  hBrushWhite;
 	PAINTSTRUCT ps;
-	TCHAR STR[] = _T("infinity");
+	LPCTSTR STR = _T("y");
 	//int numChar;  //STRの文字数
 	//int *pDx;     //文字の間隔を表す配列
 	static LOGFONT logfont;  //フォント情報の構造体
@@ -121,6 +121,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	case WM_PAINT:{
 
 					  hDC = BeginPaint(hWnd, &ps);		// GDI関数による描画を開始する
+					  hFont = CreateFontIndirect(&logfont);
+					  SelectObject(hDC, hFont);
 
 					  hBrushBlack = CreateSolidBrush(RGB(0, 0, 0));
 					  SelectObject(hDC, hBrushBlack);
@@ -144,16 +146,26 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 					  /*螺旋を描く*/
 					  double x0 = 170;
 					  double y0 = 310;
+					  //logfont.lfWidth = 100;
+					  //logfont.lfHeight = 100;
 					  MoveToEx(hDC, x0, y0, NULL);     //開始点に移動
-					  for (double theta = 0; theta < 59; theta += 0.2){
-						  double a1 = 1.098;
+					  for (double theta = 0; theta < 75; theta += 0.2){
+						  double a1 = 1.08;
 						  double x1 = pow(a1, theta)*cos(theta) + x0;       //x座標を設定
 						  double y1 = pow(a1, theta)*sin(theta) + y0;       //y座標を設定
-						  if ((x1 >= 29 && x1 <= 303) && (y1 >= 83 && y1 <= 555)){  //外枠の外は螺旋を白で描く
-							  //LineTo(hDC, x1, y1);            //現時点の座標から(x1, y1)に線を描く
-							  SetBkColor(hDC, RGB(255, 255, 0));
-							  TextOut(hDC, x1, y1, STR, _tcslen(STR));
+						  if ((x1 >= 20 && x1 <= 303) && (y1 >= 83 && y1 <= 555)){  //外枠の外は螺旋を白で描く
+							  for (angle = -2; angle <= 3600; angle += 100){
+								  //LineTo(hDC, x1, y1);            //現時点の座標から(x1, y1)に線を描く
+								  SetBkMode(hDC, TRANSPARENT);      //テキストの背景を透明にする
+								  //SetBkColor(hDC, RGB(255, 255, 0));
+								  //logfont.lfEscapement = angle;
+								  //logfont.lfWidth += theta;
+								  //logfont.lfHeight += theta;
+								  TextOut(hDC, x1, y1, STR, (int)_tcslen(STR));
+								  //DeleteObject(hFont); 					// 作成した論理フォントを削除する
+							  }
 						  }
+
 					  }
 
 					  SelectObject(hDC, hBrushBlack);
