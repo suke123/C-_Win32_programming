@@ -15,6 +15,11 @@ static TCHAR szWindowClass[] = _T("iPhone7Plus");
 static TCHAR szTitle[] = _T("iPhone7Plus");
 HINSTANCE	hInst;
 
+int window_pos_x = 100;
+int window_pos_y = 100;
+int window_width = 350;
+int window_height = 690;
+
 int WINAPI WinMain(HINSTANCE hInstance,
 	HINSTANCE hPrevInstance,
 	LPSTR pCmdLine,
@@ -60,10 +65,10 @@ int WINAPI WinMain(HINSTANCE hInstance,
 		szWindowClass,					// ウィンドウクラス名
 		szTitle,							// タイトルバーに表示する文字列
 		WS_OVERLAPPEDWINDOW,		// ウィンドウの種類
-		100,								// ウィンドウを表示する位置(X座標)
-		100,								// ウィンドウを表示する位置(Y座標)
-	    350,								// ウィンドウの幅
-		690,								// ウィンドウの高さ
+		window_pos_x,								// ウィンドウを表示する位置(X座標)
+		window_pos_y,								// ウィンドウを表示する位置(Y座標)
+	    window_width,								// ウィンドウの幅
+		window_height,								// ウィンドウの高さ
 		NULL,							// 親ウィンドウのウィンドウハンドル
 		NULL,							// メニューハンドル
 		hInst,							// インスタンスハンドル
@@ -98,8 +103,21 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	HBRUSH  hBrushYellow;
 	HBRUSH  hBrushWhite;
 	PAINTSTRUCT ps;
+	TCHAR STR[] = _T("infinity");
+	//int numChar;  //STRの文字数
+	//int *pDx;     //文字の間隔を表す配列
+	static LOGFONT logfont;  //フォント情報の構造体
+	HFONT hFont;
+	int angle;
 
 	switch (message) {
+	case WM_CREATE:
+		ZeroMemory(&logfont, sizeof(logfont));	// フォント情報構造体を０で初期化
+		logfont.lfCharSet = DEFAULT_CHARSET;	// システムのデフォルト文字セットを使う
+		//logfont.lfWeight = 700;
+		wsprintf(logfont.lfFaceName, _T("Times New Roman"));
+		break;
+		
 	case WM_PAINT:{
 
 					  hDC = BeginPaint(hWnd, &ps);		// GDI関数による描画を開始する
@@ -127,12 +145,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 					  double x0 = 170;
 					  double y0 = 310;
 					  MoveToEx(hDC, x0, y0, NULL);     //開始点に移動
-					  for (double theta = 0; theta < 59; theta += 0.01){
-						  double a1 = 1.1;
+					  for (double theta = 0; theta < 59; theta += 0.2){
+						  double a1 = 1.098;
 						  double x1 = pow(a1, theta)*cos(theta) + x0;       //x座標を設定
 						  double y1 = pow(a1, theta)*sin(theta) + y0;       //y座標を設定
-						  if ((x1 >= 10 && x1 <= 322) && (y1 >= 10 && y1 <= 643)){  //外枠の外は螺旋を白で描く
-							  LineTo(hDC, x1, y1);            //現時点の座標から(x1, y1)に線を描く
+						  if ((x1 >= 29 && x1 <= 303) && (y1 >= 83 && y1 <= 555)){  //外枠の外は螺旋を白で描く
+							  //LineTo(hDC, x1, y1);            //現時点の座標から(x1, y1)に線を描く
+							  SetBkColor(hDC, RGB(255, 255, 0));
+							  TextOut(hDC, x1, y1, STR, _tcslen(STR));
 						  }
 					  }
 
