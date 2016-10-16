@@ -103,7 +103,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	HBRUSH  hBrushYellow;
 	HBRUSH  hBrushWhite;
 	PAINTSTRUCT ps;
-	LPCTSTR STR = _T("y");
+	//LPCTSTR STR = _T("y");
+	char c[] = "infinity";
+	//WCHAR c[9] = _T("infinity");
 	//int numChar;  //STRの文字数
 	//int *pDx;     //文字の間隔を表す配列
 	static LOGFONT logfont;  //フォント情報の構造体
@@ -114,7 +116,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	case WM_CREATE:
 		ZeroMemory(&logfont, sizeof(logfont));	// フォント情報構造体を０で初期化
 		logfont.lfCharSet = DEFAULT_CHARSET;	// システムのデフォルト文字セットを使う
-		//logfont.lfWeight = 700;
+		//logfont.lfHeight = 700;
 		wsprintf(logfont.lfFaceName, _T("Times New Roman"));
 		break;
 		
@@ -146,26 +148,35 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 					  /*螺旋を描く*/
 					  double x0 = 170;
 					  double y0 = 310;
+					  int i = 0;
+					  LPCTSTR STR = _T(c);
 					  //logfont.lfWidth = 100;
 					  //logfont.lfHeight = 100;
 					  MoveToEx(hDC, x0, y0, NULL);     //開始点に移動
-					  for (double theta = 0; theta < 75; theta += 0.2){
-						  double a1 = 1.08;
-						  double x1 = pow(a1, theta)*cos(theta) + x0;       //x座標を設定
-						  double y1 = pow(a1, theta)*sin(theta) + y0;       //y座標を設定
-						  if ((x1 >= 20 && x1 <= 303) && (y1 >= 83 && y1 <= 555)){  //外枠の外は螺旋を白で描く
-							  for (angle = -2; angle <= 3600; angle += 100){
+					  for (angle = -2; angle <= 3600; angle += 100){
+						  for (double theta = 0; theta < 75; theta += 0.1){
+							  double a1 = 1.08;
+							  double x1 = pow(a1, theta)*cos(theta) + x0;       //x座標を設定
+							  double y1 = pow(a1, theta)*sin(theta) + y0;       //y座標を設定
+							  if ((x1 >= 20 && x1 <= 303) && (y1 >= 83 && y1 <= 555)){  //外枠の外は螺旋を白で描く
+
 								  //LineTo(hDC, x1, y1);            //現時点の座標から(x1, y1)に線を描く
 								  SetBkMode(hDC, TRANSPARENT);      //テキストの背景を透明にする
 								  //SetBkColor(hDC, RGB(255, 255, 0));
-								  //logfont.lfEscapement = angle;
-								  //logfont.lfWidth += theta;
-								  //logfont.lfHeight += theta;
-								  TextOut(hDC, x1, y1, STR, (int)_tcslen(STR));
-								  //DeleteObject(hFont); 					// 作成した論理フォントを削除する
-							  }
-						  }
+								  logfont.lfOrientation = angle;
 
+								  //logfont.lfWidth += theta;
+								  //logfont.lfHeight += angle;
+								  TextOut(hDC, x1, y1, c, (int)_tcslen(c));
+								  DeleteObject(hFont); 					// 作成した論理フォントを削除する
+								  i++;
+								  if (i == 8){
+									  i = 0;
+								  }
+
+							  }
+
+						  }
 					  }
 
 					  SelectObject(hDC, hBrushBlack);
