@@ -103,8 +103,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	HBRUSH  hBrushYellow;
 	HBRUSH  hBrushWhite;
 	PAINTSTRUCT ps;
-	//LPCTSTR STR = _T("y");
-	char c[] = "infinity";
+	LPCTSTR STR1 = _T("i");
+	LPCTSTR STR2 = _T("n");
+	LPCTSTR STR3 = _T("f");
+	LPCTSTR STR4 = _T("i");
+	LPCTSTR STR5 = _T("n");
+	LPCTSTR STR6 = _T("i");
+	LPCTSTR STR7 = _T("t");
+	LPCTSTR STR8 = _T("y");
+	 //LPCTSTR STR = _T("y");
 	//WCHAR c[9] = _T("infinity");
 	//int numChar;  //STRの文字数
 	//int *pDx;     //文字の間隔を表す配列
@@ -149,13 +156,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 					  double x0 = 170;
 					  double y0 = 310;
 					  int i = 0;
-					  LPCTSTR STR = _T(c);
+					  //LPCTSTR STR = _T(c);
 					  //logfont.lfWidth = 100;
 					  //logfont.lfHeight = 100;
 					  MoveToEx(hDC, x0, y0, NULL);     //開始点に移動
 					  for (angle = -2; angle <= 3600; angle += 100){
-						  for (double theta = 0; theta < 75; theta += 0.1){
-							  double a1 = 1.08;
+						  for (double theta = 0; theta < 85; theta += 0.1){
+							  i++;
+							  double a1 = 1.09;
 							  double x1 = pow(a1, theta)*cos(theta) + x0;       //x座標を設定
 							  double y1 = pow(a1, theta)*sin(theta) + y0;       //y座標を設定
 							  if ((x1 >= 20 && x1 <= 303) && (y1 >= 83 && y1 <= 555)){  //外枠の外は螺旋を白で描く
@@ -167,12 +175,59 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 
 								  //logfont.lfWidth += theta;
 								  //logfont.lfHeight += angle;
-								  TextOut(hDC, x1, y1, c, (int)_tcslen(c));
+								  //for (i = 0; i < 9; i++){
+									  //LPCTSTR STR = (LPCTSTR)c[i];
+								  while(i < 9){
+									  switch (i){
+									  case 1:
+										  TextOut(hDC, x1, y1, STR1, _tcslen(STR1));
+										  //i++;
+										  break;
+									  case 2:
+										  TextOut(hDC, x1, y1, STR2, _tcslen(STR2));
+										  //i++;
+										  break;
+									  case 3:
+										  TextOut(hDC, x1, y1, STR3, _tcslen(STR3));
+										  //i++;
+										  break;
+									  case 4:
+										  TextOut(hDC, x1, y1, STR4, _tcslen(STR4));
+										  //i++;
+										  break;
+									  case 5:
+										  TextOut(hDC, x1, y1, STR5, _tcslen(STR5));
+										  //i++;
+										  break;
+									  case 6:
+										  TextOut(hDC, x1, y1, STR6, _tcslen(STR6));
+										  //i++;
+										  break;
+									  case 7:
+										  TextOut(hDC, x1, y1, STR7, _tcslen(STR7));
+										  //i++;
+										  break;
+									  case 8:
+										  TextOut(hDC, x1, y1, STR8, _tcslen(STR8));
+										  i = 0;
+										  break;
+									  }
+									  
+									  break;
+								  }
+								  //i++;
+								  
+									  //TextOut(hDC, x1, y1, STR, _tcslen(STR));
+									  /*if (i == 8){
+										  i = 0;
+									  }*/
+								  //}
+								  //i = 0;
 								  DeleteObject(hFont); 					// 作成した論理フォントを削除する
-								  i++;
+								  /*i++;
 								  if (i == 8){
 									  i = 0;
-								  }
+								  }*/
 
 							  }
 
