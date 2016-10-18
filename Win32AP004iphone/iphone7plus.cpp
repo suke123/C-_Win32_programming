@@ -106,139 +106,122 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	LPCTSTR STR1 = _T("i");
 	LPCTSTR STR2 = _T("n");
 	LPCTSTR STR3 = _T("f");
-	LPCTSTR STR4 = _T("i");
+	//LPCTSTR STR4 = _T("i");
 	LPCTSTR STR5 = _T("n");
-	LPCTSTR STR6 = _T("i");
+	//LPCTSTR STR6 = _T("i");
 	LPCTSTR STR7 = _T("t");
 	LPCTSTR STR8 = _T("y");
-	 //LPCTSTR STR = _T("y");
-	//WCHAR c[9] = _T("infinity");
-	//int numChar;  //STRの文字数
-	//int *pDx;     //文字の間隔を表す配列
 	static LOGFONT logfont;  //フォント情報の構造体
 	HFONT hFont;
-	int angle;
+	int angle = 1200;
 
 	switch (message) {
 	case WM_CREATE:
 		ZeroMemory(&logfont, sizeof(logfont));	// フォント情報構造体を０で初期化
 		logfont.lfCharSet = DEFAULT_CHARSET;	// システムのデフォルト文字セットを使う
-		//logfont.lfHeight = 700;
 		wsprintf(logfont.lfFaceName, _T("Times New Roman"));
 		break;
 		
 	case WM_PAINT:{
 
-					  hDC = BeginPaint(hWnd, &ps);		// GDI関数による描画を開始する
-					  hFont = CreateFontIndirect(&logfont);
-					  SelectObject(hDC, hFont);
+		hDC = BeginPaint(hWnd, &ps);		// GDI関数による描画を開始する
+		
+		hBrushBlack = CreateSolidBrush(RGB(0, 0, 0));
+		SelectObject(hDC, hBrushBlack);
+		RoundRect(hDC, 10, 10, 322, 643, 70, 80);    //iPhone7の外枠
+		Rectangle(hDC, 7, 85, 20, 110);               //マナーモードON/OFFキー
+		Rectangle(hDC, 7, 135, 20, 185);               //音量＋ボタン
+		Rectangle(hDC, 7, 200, 20, 250);               //音量－ボタン
+		Rectangle(hDC, 321, 120, 325, 170);               //電源ボタン
 
-					  hBrushBlack = CreateSolidBrush(RGB(0, 0, 0));
-					  SelectObject(hDC, hBrushBlack);
-					  RoundRect(hDC, 10, 10, 322, 643, 70, 80);    //iPhone7の外枠
-					  Rectangle(hDC, 7, 85, 20, 110);               //マナーモードON/OFFキー
-					  Rectangle(hDC, 7, 135, 20, 185);               //音量＋ボタン
-					  Rectangle(hDC, 7, 200, 20, 250);               //音量－ボタン
-					  Rectangle(hDC, 321, 120, 325, 170);               //電源ボタン
+		hBrushWhite = CreateSolidBrush(RGB(255, 255, 255));
+		SelectObject(hDC, hBrushWhite);
+		Ellipse(hDC, 162, 25, 170, 33);              //中央上部の丸
+		Ellipse(hDC, 100, 35, 115, 50);              //中央上部下の丸
+		RoundRect(hDC, 129, 39, 207, 46, 10, 80);
+		Ellipse(hDC, 139, 579, 193, 633);            //ボタンの外丸
+		
+		hBrushYellow = CreateSolidBrush(RGB(255, 255, 0));
+		SelectObject(hDC, hBrushYellow);
+		Rectangle(hDC, 29, 83, 303, 569);            //iPhone7の画面サイズ
 
-					  hBrushWhite = CreateSolidBrush(RGB(255, 255, 255));
-					  SelectObject(hDC, hBrushWhite);
-					  Ellipse(hDC, 162, 25, 170, 33);              //中央上部の丸
-					  Ellipse(hDC, 100, 35, 115, 50);              //中央上部下の丸
-					  RoundRect(hDC, 129, 39, 207, 46, 10, 80);
-					  Ellipse(hDC, 139, 579, 193, 633);            //ボタンの外丸
+		/*螺旋を描く*/
+		double x0 = 170;
+		double y0 = 310;
+		int i = 0;
+		MoveToEx(hDC, x0, y0, NULL);     //開始点に移動
+		//for (angle = 0; angle <= 3600; angle += 100){
+		for (double theta = 20; theta < 90; theta += 0.094){
+			while (angle >= 0){
+				hFont = CreateFontIndirect(&logfont);
+				SelectObject(hDC, hFont);
+				//i += 1;
+				int th = theta * 100;
+				logfont.lfHeight = theta-20;
+				logfont.lfEscapement = angle;
+				if (angle <= 0){
+					angle = 3600;
+				}
+				angle -= 100;
+				//theta -= 0.8;
+				double a1 = 1.098;
+				double x1 = pow(a1, theta)*cos(theta) + x0;       //x座標を設定
+				double y1 = pow(a1, theta)*sin(theta) + y0;       //y座標を設定
+				//if (th % 2 != 0){
+					if ((x1 >= 29 && x1 <= 305) && (y1 >= 83 && y1 <= 569)){  //枠内のみ螺旋を描く
+						//LineTo(hDC, x1, y1);            //現時点の座標から(x1, y1)に線を描く
+						SetBkMode(hDC, TRANSPARENT);      //テキストの背景を透明にする
+						while (i < 9){
+							switch (i){
+							case 1:
+							case 4:
+							case 6:
+								TextOut(hDC, x1, y1, STR1, _tcslen(STR1));
+								break;
+							case 2:
+								TextOut(hDC, x1, y1, STR2, _tcslen(STR2));
+								break;
+							case 3:
+								TextOut(hDC, x1, y1, STR3, _tcslen(STR3));
+								break;
+								/*case 4:
+									TextOut(hDC, x1, y1, STR4, _tcslen(STR4));
+									break;*/
+							case 5:
+								TextOut(hDC, x1, y1, STR5, _tcslen(STR5));
+								break;
+								/*case 6:
+									TextOut(hDC, x1, y1, STR6, _tcslen(STR6));
+									break;*/
+							case 7:
+								TextOut(hDC, x1, y1, STR7, _tcslen(STR7));
+								break;
+							case 8:
+								TextOut(hDC, x1, y1, STR8, _tcslen(STR8));
+								i = 1;
+								break;
 
-					  hBrushYellow = CreateSolidBrush(RGB(255, 255, 0));
-					  SelectObject(hDC, hBrushYellow);
-					  Rectangle(hDC, 29, 83, 303, 569);            //iPhone7の画面サイズ
+								//DeleteObject(hFont);
+							}
+							i++;
+							break;
 
-					  /*螺旋を描く*/
-					  double x0 = 170;
-					  double y0 = 310;
-					  int i = 0;
-					  //LPCTSTR STR = _T(c);
-					  //logfont.lfWidth = 100;
-					  //logfont.lfHeight = 100;
-					  MoveToEx(hDC, x0, y0, NULL);     //開始点に移動
-					  for (angle = -2; angle <= 3600; angle += 100){
-						  for (double theta = 0; theta < 85; theta += 0.1){
-							  i++;
-							  double a1 = 1.09;
-							  double x1 = pow(a1, theta)*cos(theta) + x0;       //x座標を設定
-							  double y1 = pow(a1, theta)*sin(theta) + y0;       //y座標を設定
-							  if ((x1 >= 20 && x1 <= 303) && (y1 >= 83 && y1 <= 555)){  //外枠の外は螺旋を白で描く
+						}
 
-								  //LineTo(hDC, x1, y1);            //現時点の座標から(x1, y1)に線を描く
-								  SetBkMode(hDC, TRANSPARENT);      //テキストの背景を透明にする
-								  //SetBkColor(hDC, RGB(255, 255, 0));
-								  logfont.lfOrientation = angle;
-
-								  //logfont.lfWidth += theta;
-								  //logfont.lfHeight += angle;
-								  //for (i = 0; i < 9; i++){
-									  //LPCTSTR STR = (LPCTSTR)c[i];
-								  while(i < 9){
-									  switch (i){
-									  case 1:
-										  TextOut(hDC, x1, y1, STR1, _tcslen(STR1));
-										  //i++;
-										  break;
-									  case 2:
-										  TextOut(hDC, x1, y1, STR2, _tcslen(STR2));
-										  //i++;
-										  break;
-									  case 3:
-										  TextOut(hDC, x1, y1, STR3, _tcslen(STR3));
-										  //i++;
-										  break;
-									  case 4:
-										  TextOut(hDC, x1, y1, STR4, _tcslen(STR4));
-										  //i++;
-										  break;
-									  case 5:
-										  TextOut(hDC, x1, y1, STR5, _tcslen(STR5));
-										  //i++;
-										  break;
-									  case 6:
-										  TextOut(hDC, x1, y1, STR6, _tcslen(STR6));
-										  //i++;
-										  break;
-									  case 7:
-										  TextOut(hDC, x1, y1, STR7, _tcslen(STR7));
-										  //i++;
-										  break;
-									  case 8:
-										  TextOut(hDC, x1, y1, STR8, _tcslen(STR8));
-										  i = 0;
-										  break;
-									  }
-									  
-									  break;
-								  }
-								  //i++;
-								  
-									  //TextOut(hDC, x1, y1, STR, _tcslen(STR));
-									  /*if (i == 8){
-										  i = 0;
-									  }*/
-								  //}
-								  //i = 0;
-								  DeleteObject(hFont); 					// 作成した論理フォントを削除する
-								  /*i++;
-								  if (i == 8){
-									  i = 0;
-								  }*/
-
-							  }
-
-						  }
-					  }
-
-					  SelectObject(hDC, hBrushBlack);
-					  Ellipse(hDC, 144, 584, 188, 628);            //ボタンの内丸
+						DeleteObject(hFont); 					// 作成した論理フォントを削除する
+					}
+					//DeleteObject(hFont); 					// 作成した論理フォントを削除する
+					break;
+				//}
+			}
+		}
+		//ReleaseDC(hWnd, hDC);
+		
+		SelectObject(hDC, hBrushBlack);
+		Ellipse(hDC, 144, 584, 188, 628);            //ボタンの内丸
 
 
-					  EndPaint(hWnd, &ps);				// GDI関数による描画を終了する
+		EndPaint(hWnd, &ps);				// GDI関数による描画を終了する
 	}break;
 
 	case WM_DESTROY:
