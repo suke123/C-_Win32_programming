@@ -162,7 +162,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 				if (angle <= 0){
 					angle = 3600;
 				}
-				angle -= 100;
+				if (theta <= 50){
+					angle -= 50;
+				}
+				else if (theta <= 70){
+					angle -= 80;
+				}
+				else{
+					angle -= 90;
+				}
 				//theta -= 0.8;
 				double a1 = 1.098;
 				double x1 = pow(a1, theta)*cos(theta) + x0;       //xÀ•W‚ðÝ’è
