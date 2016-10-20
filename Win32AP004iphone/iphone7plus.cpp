@@ -106,14 +106,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	LPCTSTR STR1 = _T("i");
 	LPCTSTR STR2 = _T("n");
 	LPCTSTR STR3 = _T("f");
-	//LPCTSTR STR4 = _T("i");
-	LPCTSTR STR5 = _T("n");
-	//LPCTSTR STR6 = _T("i");
-	LPCTSTR STR7 = _T("t");
-	LPCTSTR STR8 = _T("y");
+	LPCTSTR STR4 = _T("t");
+	LPCTSTR STR5 = _T("y");
 	static LOGFONT logfont;  //フォント情報の構造体
 	HFONT hFont;
-	int angle = 1200;
+	int angle = 1;
 
 	switch (message) {
 	case WM_CREATE:
@@ -145,85 +142,68 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 		SelectObject(hDC, hBrushYellow);
 		Rectangle(hDC, 29, 83, 303, 569);            //iPhone7の画面サイズ
 
-		/*螺旋を描く*/
+		//****  螺旋を描く ****
 		double x0 = 170;
 		double y0 = 310;
-		int i = 0;
+		double x1, y1;
+		double a1 = 1.08;
+
+		int i = 1;
 		MoveToEx(hDC, x0, y0, NULL);     //開始点に移動
-		//for (angle = 0; angle <= 3600; angle += 100){
-		for (double theta = 20; theta < 90; theta += 0.094){
+		for (double theta = 40.2; theta < 90; theta += 0.1){
 			while (angle >= 0){
 				hFont = CreateFontIndirect(&logfont);
 				SelectObject(hDC, hFont);
-				//i += 1;
-				int th = theta * 100;
-				logfont.lfHeight = theta-20;
-				logfont.lfEscapement = angle;
-				if (angle <= 0){
-					angle = 3600;
-				}
-				if (theta <= 50){
-					angle -= 50;
-				}
-				else if (theta <= 70){
-					angle -= 80;
-				}
-				else{
-					angle -= 90;
-				}
-				//theta -= 0.8;
-				double a1 = 1.098;
-				double x1 = pow(a1, theta)*cos(theta) + x0;       //x座標を設定
-				double y1 = pow(a1, theta)*sin(theta) + y0;       //y座標を設定
-				//if (th % 2 != 0){
-					if ((x1 >= 29 && x1 <= 305) && (y1 >= 83 && y1 <= 569)){  //枠内のみ螺旋を描く
-						//LineTo(hDC, x1, y1);            //現時点の座標から(x1, y1)に線を描く
-						SetBkMode(hDC, TRANSPARENT);      //テキストの背景を透明にする
-						while (i < 9){
-							switch (i){
-							case 1:
-							case 4:
-							case 6:
-								TextOut(hDC, x1, y1, STR1, _tcslen(STR1));
-								break;
-							case 2:
-								TextOut(hDC, x1, y1, STR2, _tcslen(STR2));
-								break;
-							case 3:
-								TextOut(hDC, x1, y1, STR3, _tcslen(STR3));
-								break;
-								/*case 4:
-									TextOut(hDC, x1, y1, STR4, _tcslen(STR4));
-									break;*/
-							case 5:
-								TextOut(hDC, x1, y1, STR5, _tcslen(STR5));
-								break;
-								/*case 6:
-									TextOut(hDC, x1, y1, STR6, _tcslen(STR6));
-									break;*/
-							case 7:
-								TextOut(hDC, x1, y1, STR7, _tcslen(STR7));
-								break;
-							case 8:
-								TextOut(hDC, x1, y1, STR8, _tcslen(STR8));
-								i = 1;
-								break;
+				
+				logfont.lfHeight = theta - 23;   //文字の大きさを指定
+				
+				x1 = pow(a1, theta)*cos(theta) + x0;       //x座標を設定
+				y1 = pow(a1, theta)*sin(theta) + y0;       //y座標を設定
 
-								//DeleteObject(hFont);
-							}
-							i++;
+
+				//**** 2点から角度を求める ****
+				double dx = x0 - x1;
+				double dy = y0 - y1;
+				double radian = atan2(dx, dy);
+				radian = radian*(180 / M_PI) * 10;
+
+				logfont.lfEscapement = radian;     //文字に傾きを付ける
+				
+				if ((x1 >= 10 && x1 <= 310) && (y1 >= 83 && y1 <= 569)){  //枠内のみ螺旋を描く
+					SetBkMode(hDC, TRANSPARENT);      //テキストの背景を透明にする
+					while (i < 9){
+						switch (i){
+						case 1:
+						case 4:
+						case 6:
+							TextOut(hDC, x1, y1, STR1, _tcslen(STR1));
+							break;
+						case 2:
+						case 5:
+							TextOut(hDC, x1, y1, STR2, _tcslen(STR2));
+							break;
+						case 3:
+							TextOut(hDC, x1, y1, STR3, _tcslen(STR3));
+							break;
+						case 7:
+							TextOut(hDC, x1, y1, STR4, _tcslen(STR4));
+							break;
+						case 8:
+							TextOut(hDC, x1, y1, STR5, _tcslen(STR5));
+							i = 0;
 							break;
 
 						}
+						i++;
+						break;
 
-						DeleteObject(hFont); 					// 作成した論理フォントを削除する
 					}
-					//DeleteObject(hFont); 					// 作成した論理フォントを削除する
-					break;
-				//}
+
+					DeleteObject(hFont); 					// 作成した論理フォントを削除する
+				}
+				break;
 			}
 		}
-		//ReleaseDC(hWnd, hDC);
 		
 		SelectObject(hDC, hBrushBlack);
 		Ellipse(hDC, 144, 584, 188, 628);            //ボタンの内丸
