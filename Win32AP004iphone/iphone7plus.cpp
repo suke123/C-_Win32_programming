@@ -155,11 +155,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 				hFont = CreateFontIndirect(&logfont);
 				SelectObject(hDC, hFont);
 				
-				logfont.lfHeight = theta - 23;   //文字の大きさを指定
+				logfont.lfHeight = theta-10;   //文字の大きさを指定
 				
 				x1 = pow(a1, theta)*cos(theta) + x0;       //x座標を設定
 				y1 = pow(a1, theta)*sin(theta) + y0;       //y座標を設定
-
 
 				//**** 2点から角度を求める ****
 				double dx = x0 - x1;
