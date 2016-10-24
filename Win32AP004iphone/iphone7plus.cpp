@@ -157,8 +157,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 				SelectObject(hDC, hFont);
 				
 				logfont.lfHeight = theta-30;   //•¶š‚Ì‘å‚«‚³‚ğw’è
-
-				
+								
 				x1 = pow(a1, theta)*cos(theta) + x0;       //xÀ•W‚ğİ’è
 				y1 = pow(a1, theta)*sin(theta) + y0;       //yÀ•W‚ğİ’è
 
