@@ -149,13 +149,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 		double a1 = 1.08;
 
 		int i = 1;
+		int n = 0;
 		MoveToEx(hDC, x0, y0, NULL);     //開始点に移動
-		for (double theta = 40.2; theta < 90; theta += 0.1){
+		for (double theta = 38; theta < 90; theta += 0.11){
 			while (angle >= 0){
 				hFont = CreateFontIndirect(&logfont);
 				SelectObject(hDC, hFont);
 				
-				logfont.lfHeight = theta-10;   //文字の大きさを指定
+				logfont.lfHeight = theta-30;   //文字の大きさを指定
 
 				
 				x1 = pow(a1, theta)*cos(theta) + x0;       //x座標を設定
@@ -169,6 +170,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 
 				logfont.lfEscapement = radian;     //文字に傾きを付ける
 				
+				//***** 最初に描かれる余分な「i」の消去  ****
+				if (n == 0){
+					n = 1;
+					break;
+				}
+
 				if ((x1 >= 10 && x1 <= 310) && (y1 >= 83 && y1 <= 569)){  //枠内のみ螺旋を描く
 					SetBkMode(hDC, TRANSPARENT);      //テキストの背景を透明にする
 					while (i < 9){
