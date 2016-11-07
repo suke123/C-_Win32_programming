@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------
-Win32AP034.cpp		 Enterpriseを動かす
+Win32CP034.cpp		 Discoveryを動かす
 ---------------------------------------------------------------------------*/
 
 #include <windows.h>
@@ -7,8 +7,8 @@ Win32AP034.cpp		 Enterpriseを動かす
 
 #define	ID_MYTIMER	(32767)
 #define	ID_MYCHILD	(100)
-#define	CHD_WIDTH	(64)
-#define	CHD_HEIGHT	(64)
+#define	CHD_WIDTH	(300)
+#define	CHD_HEIGHT	(150)
 
 // プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
@@ -17,7 +17,7 @@ LRESULT CALLBACK ChdProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 BOOL InitApp(HINSTANCE, WNDPROC, LPCTSTR);
 BOOL InitInstance(HINSTANCE, int, LPCTSTR);
 
-static TCHAR szClassName[] = _T("Win32AP034");
+static TCHAR szClassName[] = _T("Win32CP034");
 static TCHAR szchClassName[] = _T("child");
 static TCHAR szTitle[] = _T("SSN Enterprise");
 
@@ -25,7 +25,7 @@ int WINAPI WinMain(HINSTANCE hCurInst, HINSTANCE hPrevInst, LPSTR lpsCmdLine, in
 	MSG msg;
 
 	if (!hPrevInst) {
-		if (!InitApp(hCurInst, WndProc, szClassName)){
+		if (!InitApp(hCurInst, WndProc, szClassName)) {
 			return FALSE;
 		}
 	}
@@ -64,16 +64,16 @@ BOOL InitInstance(HINSTANCE hInst, int nCmdShow, LPCTSTR szClassName) {
 		szClassName,
 		szTitle,						//タイトルバーにこの名前が表示されます
 		WS_OVERLAPPEDWINDOW,	//ウィンドウの種類
-		CW_USEDEFAULT,			//Ｘ座標
-		CW_USEDEFAULT,			//Ｙ座標
-		CW_USEDEFAULT,			//幅
-		CW_USEDEFAULT,			//高さ
+		CW_USEDEFAULT,			//Ｘ座標　適宜指定する
+		CW_USEDEFAULT,			//Ｙ座標　適宜指定する
+		CW_USEDEFAULT,			//幅	　適宜指定する
+		CW_USEDEFAULT,			//高さ	　適宜指定する
 		NULL,						//親ウィンドウのハンドル、親を作るときはNULL
 		NULL,			//メニューハンドル、クラスメニューを使うときはNULL
 		hInst,			//インスタンスハンドル
 		NULL);
 
-	if (!hWnd){
+	if (!hWnd) {
 		return FALSE;
 	}
 
@@ -109,7 +109,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 			(HMENU)ID_MYCHILD,	// メニューハンドル
 			hInst,					// インスタンスハンドル
 			NULL					// その他の作成データ
-			);
+		);
 
 		ShowWindow(hChdWnd, SW_SHOW);
 		UpdateWindow(hChdWnd);
@@ -167,7 +167,7 @@ LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPara
 
 		hBitmap = (HBITMAP)LoadImage(
 			hInst,
-			_T("Enterprise.bmp"),
+			_T("Discovery.bmp"),
 			IMAGE_BITMAP,
 			0,
 			0,
@@ -179,7 +179,7 @@ LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPara
 				_T("ビットマップのロードに失敗しました"),
 				_T("エラー"),
 				MB_OK | MB_ICONWARNING
-				);
+			);
 			return 0;
 		}
 
