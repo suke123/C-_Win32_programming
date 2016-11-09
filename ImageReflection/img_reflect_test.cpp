@@ -21,6 +21,8 @@ static TCHAR szClassName[] = _T("Enterprise_Reflect");
 static TCHAR szchClassName[] = _T("child");
 static TCHAR szTitle[] = _T("SSN Enterprise");
 
+int count = 1;      //初期動作を指定
+
 int WINAPI WinMain(HINSTANCE hCurInst, HINSTANCE hPrevInst, LPSTR lpsCmdLine, int nCmdShow) {
 	MSG msg;
 
@@ -94,6 +96,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	int height = 450;
 	int width = 900;
 	bool window_end = false;
+	//static int pos_x;   //反射する時にいるx座標
+	//static int pos_y;   //反射する時にいるy座標
+
+	int go_x1 = CHD_WIDTH / 32;
+	int go_y1 = CHD_HEIGHT / 64;
+	int go_x2 = CHD_WIDTH / 128 + 1;
+	int go_y2 = CHD_HEIGHT / 64;
 
 	switch (message) {
 	case WM_CREATE:
@@ -124,41 +133,46 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 		GetClientRect(hWnd, &rc);
 		MoveWindow(hChdWnd, x, y, CHD_WIDTH, CHD_HEIGHT, TRUE);
 
-		/*if (x == 0 || y == 0 || x == rc.right - CHD_WIDTH || y == height){
-			window_end = true;
-			}
-			else{
-			window_end = false;
-			}*/
-
 		switch (direction) {
+		
+		/**
+		**右向きに移動する時の処理
+		**/
 		case right:
-			//if (x == 0 && y == 0){
-			x += 20;
-			y += 2;
-			//window_end = win_end(x, y);
-
-			if (x >= rc.right - CHD_WIDTH || y >= height) {
+			if (count == 1){
+				x += go_x1;     //
+				y += go_y1;
+			}
+			if (count == 2){
+				x += go_x2;
+				y -= go_y2;
+			}
+			if (y <= 0){
+				x += go_x2;
+				y += go_y2;
+			}
+			//if (x >= rc.right - CHD_WIDTH || y >= height) {
+			if (x >= rc.right - CHD_WIDTH){
+				count = 2;
 				direction = left;
-				//window_end = win_end(x, y);
 			}
 
 			break;
 
+		/**
+		**左向きに移動する時の処理
+		**/
 		case left:
-			if (y <= height / 2){
-				x -= 4;
-				y += 10;
-				//window_end = win_end(x, y);
+			if (x > CHD_WIDTH /2){
+				x -= go_x2;
+				y += go_y2;
 			}
-			else{
-				x -= 2;
-				y -= 5;
-				//window_end = win_end(x, y);
+			if (y >= rc.bottom - CHD_HEIGHT){
+				x += go_x2;
+				y -= go_y2;
 			}
 			if (x < 0 || y < 0){
 				direction = right;
-				//window_end = win_end(x, y);
 			}
 			break;
 		}
@@ -176,15 +190,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 
 	return 0;
 }
-
-/*static boolean win_end(int x, int y){
-	bool bl = false;
-	if (x <= 0 || y <= 0 || x >=  900|| y >= 450){
-		bl = true;
-	}
-	return bl;
-}*/
-
 
 LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 	static HBITMAP	hBitmap;
