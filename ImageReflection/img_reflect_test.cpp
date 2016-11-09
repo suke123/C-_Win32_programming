@@ -17,7 +17,7 @@ LRESULT CALLBACK ChdProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 BOOL InitApp(HINSTANCE, WNDPROC, LPCTSTR);
 BOOL InitInstance(HINSTANCE, int, LPCTSTR);
 
-static TCHAR szClassName[] = _T("Win32CP034");
+static TCHAR szClassName[] = _T("Enterprise_Reflect");
 static TCHAR szchClassName[] = _T("child");
 static TCHAR szTitle[] = _T("SSN Enterprise");
 
@@ -91,6 +91,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	static HWND		hChdWnd;
 	HINSTANCE		hInst;
 	enum { right, left };
+	int height = 450;
+	int width = 900;
+	bool window_end = false;
 
 	switch (message) {
 	case WM_CREATE:
@@ -109,7 +112,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 			(HMENU)ID_MYCHILD,	// メニューハンドル
 			hInst,					// インスタンスハンドル
 			NULL					// その他の作成データ
-		);
+			);
 
 		ShowWindow(hChdWnd, SW_SHOW);
 		UpdateWindow(hChdWnd);
@@ -121,21 +124,42 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 		GetClientRect(hWnd, &rc);
 		MoveWindow(hChdWnd, x, y, CHD_WIDTH, CHD_HEIGHT, TRUE);
 
+		/*if (x == 0 || y == 0 || x == rc.right - CHD_WIDTH || y == height){
+			window_end = true;
+			}
+			else{
+			window_end = false;
+			}*/
+
 		switch (direction) {
 		case right:
-			x += 10;
+			//if (x == 0 && y == 0){
+			x += 20;
 			y += 2;
-			if (x >= rc.right - CHD_WIDTH) {
+			//window_end = win_end(x, y);
+
+			if (x >= rc.right - CHD_WIDTH || y >= height) {
 				direction = left;
+				//window_end = win_end(x, y);
 			}
 
 			break;
 
 		case left:
-			x -= 10;
-			y -= 2;
-			if (x < 0)
+			if (y <= height / 2){
+				x -= 4;
+				y += 10;
+				//window_end = win_end(x, y);
+			}
+			else{
+				x -= 2;
+				y -= 5;
+				//window_end = win_end(x, y);
+			}
+			if (x < 0 || y < 0){
 				direction = right;
+				//window_end = win_end(x, y);
+			}
 			break;
 		}
 		break;
@@ -149,8 +173,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 		return DefWindowProc(hWnd, message, wParam, lParam);
 		break;
 	}
+
 	return 0;
 }
+
+/*static boolean win_end(int x, int y){
+	bool bl = false;
+	if (x <= 0 || y <= 0 || x >=  900|| y >= 450){
+		bl = true;
+	}
+	return bl;
+}*/
 
 
 LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lParam) {
