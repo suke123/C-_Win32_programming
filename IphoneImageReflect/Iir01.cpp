@@ -9,10 +9,12 @@ Iphone7plus.cpp
 
 // プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+LRESULT CALLBACK ChdProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 // 大域変数
 static TCHAR szWindowClass[] = _T("iPhone7Plus");
 static TCHAR szTitle[] = _T("iPhone7Plus");
+
 HINSTANCE	hInst;
 
 int window_pos_x = 100;
@@ -142,7 +144,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 
 					  SelectObject(hDC, hBrushBlack);
 					  Ellipse(hDC, 584, 144, 628, 188);            //ボタンの内丸
-
 
 					  EndPaint(hWnd, &ps);				// GDI関数による描画を終了する
 	}break;
