@@ -7,8 +7,8 @@ lir01.cpp	(IphoneImageReflection)	 catを動かす
 
 #define	ID_MYTIMER	(32767)
 #define	ID_MYCHILD	(100)
-#define	CHD_WIDTH	(300)
-#define	CHD_HEIGHT	(150)
+#define	CHD_WIDTH	(99)
+#define	CHD_HEIGHT	(99)
 
 // プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
@@ -111,7 +111,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 
 	switch (message) {
 
-	case WM_PAINT:{
+	case WM_PAINT:
 
 		hDC = BeginPaint(hWnd, &ps);		// GDI関数による描画を開始する
 
@@ -141,8 +141,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 		Ellipse(hDC, 584, 144, 628, 188);            //ボタンの内丸
 
 		EndPaint(hWnd, &ps);				// GDI関数による描画を終了する
-					  
-	}
+	
 	}
 
 	switch (message) {
@@ -155,8 +154,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 			szchClassName,			// ウィンドウクラス名
 			NULL,					// タイトルバーに表示する文字列
 			WS_CHILD,				// ウィンドウの種類
-			0,						// ウィンドウを表示する位置(X座標）
-			0,						// ウィンドウを表示する位置(Y座標）
+			83,						// ウィンドウを表示する位置(X座標）
+			29,						// ウィンドウを表示する位置(Y座標）
 			CHD_WIDTH,			// ウィンドウの幅
 			CHD_HEIGHT,			// ウィンドウの高さ
 			hWnd,					// 親ウィンドウのウィンドウハンドル
@@ -247,7 +246,7 @@ LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPara
 
 		hBitmap = (HBITMAP)LoadImage(
 			hInst,
-			_T("cat.bmp"),
+			_T("cat3.bmp"),
 			IMAGE_BITMAP,
 			0,
 			0,
