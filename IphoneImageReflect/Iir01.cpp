@@ -23,8 +23,8 @@ static TCHAR szTitle[] = _T("SSN Enterprise");
 
 int img_start_x = 83;
 int img_start_y = 131;
-int img_end_x = 569;
-int img_end_y = 303;
+int img_end_x = 482;
+int img_end_y = 233;
 
 int count = 1;      //‰Šú“®ì‚ğw’è
 
@@ -188,17 +188,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 			if (count == 1){
 				x += go_x1;     
 				y -= go_y1;
+				count = 2;
 			}
 			if (count == 2){
 				x += go_x2;
 				y -= go_y2;
 			}
-			if (y <= 0){
+			if (y <= 29){
 				x += go_x2;
 				y += go_y2;
 			}
-			//if (x >= rc.right - CHD_WIDTH || y >= height) {
-			if (x >= rc.right - CHD_WIDTH){
+			if (x >= img_end_x){
 				count = 2;
 				direction = left;
 			}
@@ -213,11 +213,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 				x -= go_x2;
 				y += go_y2;
 			}
-			if (y >= rc.bottom - CHD_HEIGHT){
-				x += go_x2;
+			if (y >= img_end_y){
+				x -= go_x2;
 				y -= go_y2;
 			}
-			if (x < 0 || y < 0){
+			if (x <= img_start_x && y <= img_start_y){
 				direction = right;
 			}
 			break;
@@ -251,7 +251,7 @@ LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPara
 
 		hBitmap = (HBITMAP)LoadImage(
 			hInst,
-			_T("cat4.bmp"),
+			_T("cat5.bmp"),
 			IMAGE_BITMAP,
 			0,
 			0,
