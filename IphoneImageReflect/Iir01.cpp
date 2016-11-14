@@ -98,8 +98,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	static HWND		hChdWnd;
 	HINSTANCE		hInst;
 	enum { right, left };
-	int height = 293;
-	int width = 486;
+	int height = 102;
+	int width = 200;
 	bool window_end = false;
 	HDC hDC;
 	HBRUSH  hBrushBlack;
@@ -109,10 +109,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	//static int pos_x;   //”½ŽË‚·‚éŽž‚É‚¢‚éxÀ•W
 	//static int pos_y;   //”½ŽË‚·‚éŽž‚É‚¢‚éyÀ•W
 
-	int go_x1 = CHD_WIDTH / 32;
-	int go_y1 = CHD_HEIGHT / 64;
-	int go_x2 = CHD_WIDTH / 128 + 1;
-	int go_y2 = CHD_HEIGHT / 64;
+	/*int go_x1 = width / 32;
+	int go_y1 = height / 64;*/
+	int go_x = width / 128 + 1;
+	int go_y = height / 64;
 
 	switch (message) {
 
@@ -185,21 +185,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 			**‰EŒü‚«‚ÉˆÚ“®‚·‚éŽž‚Ìˆ—
 			**/
 		case right:
-			if (count == 1){
-				x += go_x1;     
-				y -= go_y1;
-				count = 2;
+			if ((x >= 83 && y <= 131) && x <= 283){
+				x += go_x;     
+				y -= go_y;				
 			}
-			if (count == 2){
-				x += go_x2;
-				y -= go_y2;
-			}
-			if (y <= 29){
-				x += go_x2;
-				y += go_y2;
+			if (y >= 29 && x >= 283 && y <= 131){
+				x += go_x;
+				y += go_y;
 			}
 			if (x >= img_end_x){
-				count = 2;
 				direction = left;
 			}
 
@@ -209,15 +203,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 			**¶Œü‚«‚ÉˆÚ“®‚·‚éŽž‚Ìˆ—
 			**/
 		case left:
-			if (x > CHD_WIDTH / 2){
-				x -= go_x2;
-				y += go_y2;
+			if (x <= 483 && x >= 283 && y <= 233){
+				x -= go_x;
+				y += go_y;
 			}
-			if (y >= img_end_y){
-				x -= go_x2;
-				y -= go_y2;
+			if (x <= 283 && y <= 233 && x >= 83){
+				x -= go_x;
+				y -= go_y;
 			}
-			if (x <= img_start_x && y <= img_start_y){
+			if (x <= img_start_x){
 				direction = right;
 			}
 			break;
