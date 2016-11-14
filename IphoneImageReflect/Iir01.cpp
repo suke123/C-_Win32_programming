@@ -22,7 +22,7 @@ static TCHAR szchClassName[] = _T("child");
 static TCHAR szTitle[] = _T("SSN Enterprise");
 
 int img_start_x = 83;
-int img_start_y = 201;
+int img_start_y = 131;
 int img_end_x = 569;
 int img_end_y = 303;
 
@@ -186,8 +186,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 			**/
 		case right:
 			if (count == 1){
-				x += go_x1;     //
-				y += go_y1;
+				x += go_x1;     
+				y -= go_y1;
 			}
 			if (count == 2){
 				x += go_x2;
@@ -251,7 +251,7 @@ LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPara
 
 		hBitmap = (HBITMAP)LoadImage(
 			hInst,
-			_T("cat3.bmp"),
+			_T("cat4.bmp"),
 			IMAGE_BITMAP,
 			0,
 			0,
