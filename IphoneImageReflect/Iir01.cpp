@@ -7,8 +7,8 @@ lir01.cpp	(IphoneImageReflection)	 catを動かす
 
 #define	ID_MYTIMER	(32767)
 #define	ID_MYCHILD	(100)
-#define	CHD_WIDTH	(99)
-#define	CHD_HEIGHT	(99)
+#define	CHD_WIDTH	(87)
+#define	CHD_HEIGHT	(70)
 
 // プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
@@ -20,6 +20,11 @@ BOOL InitInstance(HINSTANCE, int, LPCTSTR);
 static TCHAR szClassName[] = _T("Enterprise_Reflect");
 static TCHAR szchClassName[] = _T("child");
 static TCHAR szTitle[] = _T("SSN Enterprise");
+
+int img_start_x = 83;
+int img_start_y = 201;
+int img_end_x = 569;
+int img_end_y = 303;
 
 int count = 1;      //初期動作を指定
 
@@ -51,7 +56,7 @@ BOOL InitApp(HINSTANCE hInst, WNDPROC WndProc, LPCTSTR szClassName) {
 	wc.hInstance = hInst;
 	wc.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
-	wc.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
+	wc.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
 	wc.lpszMenuName = NULL;
 	wc.lpszClassName = szClassName;
 
@@ -87,14 +92,14 @@ BOOL InitInstance(HINSTANCE hInst, int nCmdShow, LPCTSTR szClassName) {
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 	RECT		rc;
-	static int 	x;
-	static int 	y;
+	static int 	x = img_start_x;
+	static int 	y = img_start_y;
 	static int 	direction;
 	static HWND		hChdWnd;
 	HINSTANCE		hInst;
 	enum { right, left };
-	int height = 450;
-	int width = 900;
+	int height = 293;
+	int width = 486;
 	bool window_end = false;
 	HDC hDC;
 	HBRUSH  hBrushBlack;
@@ -151,17 +156,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 		InitApp(hInst, ChdProc, szchClassName);
 
 		hChdWnd = CreateWindow(
-			szchClassName,			// ウィンドウクラス名
-			NULL,					// タイトルバーに表示する文字列
-			WS_CHILD,				// ウィンドウの種類
-			83,						// ウィンドウを表示する位置(X座標）
-			29,						// ウィンドウを表示する位置(Y座標）
+			szchClassName,		// ウィンドウクラス名
+			NULL,				// タイトルバーに表示する文字列
+			WS_CHILD,			// ウィンドウの種類
+			83,					// ウィンドウを表示する位置(X座標）
+			29,					// ウィンドウを表示する位置(Y座標）
 			CHD_WIDTH,			// ウィンドウの幅
 			CHD_HEIGHT,			// ウィンドウの高さ
-			hWnd,					// 親ウィンドウのウィンドウハンドル
+			hWnd,				// 親ウィンドウのウィンドウハンドル
 			(HMENU)ID_MYCHILD,	// メニューハンドル
-			hInst,					// インスタンスハンドル
-			NULL					// その他の作成データ
+			hInst,				// インスタンスハンドル
+			NULL				// その他の作成データ
 			);
 
 		ShowWindow(hChdWnd, SW_SHOW);
