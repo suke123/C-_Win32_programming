@@ -106,11 +106,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	HBRUSH  hBrushYellow;
 	HBRUSH  hBrushWhite;
 	PAINTSTRUCT ps;
-	//static int pos_x;   //反射する時にいるx座標
-	//static int pos_y;   //反射する時にいるy座標
-
-	/*int go_x1 = width / 32;
-	int go_y1 = height / 64;*/
+	
 	int go_x = width / 128 + 1;
 	int go_y = height / 64;
 
@@ -212,6 +208,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 				y -= go_y;
 			}
 			if (x <= img_start_x){
+				count++;
 				direction = right;
 			}
 			break;
@@ -232,7 +229,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 }
 
 LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lParam) {
-	static HBITMAP	hBitmap;
+	static HBITMAP	hBitmap1, hBitmap2;
 	static HBITMAP	hPrevBitmap;
 	HINSTANCE		hInst;
 	PAINTSTRUCT	ps;
@@ -243,7 +240,15 @@ LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPara
 	case WM_PAINT:
 		hInst = (HINSTANCE)GetWindowLong(hChdWnd, GWL_HINSTANCE);
 
-		hBitmap = (HBITMAP)LoadImage(
+		hBitmap1 = (HBITMAP)LoadImage(
+			hInst,
+			_T("dog2.bmp"),
+			IMAGE_BITMAP,
+			0,
+			0,
+			LR_LOADFROMFILE);
+
+		hBitmap2 = (HBITMAP)LoadImage(
 			hInst,
 			_T("cat5.bmp"),
 			IMAGE_BITMAP,
@@ -251,7 +256,16 @@ LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPara
 			0,
 			LR_LOADFROMFILE);
 
-		if (hBitmap == NULL) {
+		if (hBitmap1 == NULL) {
+			MessageBox(
+				hChdWnd,
+				_T("ビットマップのロードに失敗しました"),
+				_T("エラー"),
+				MB_OK | MB_ICONWARNING
+				);
+			return 0;
+		}
+		if (hBitmap2 == NULL) {
 			MessageBox(
 				hChdWnd,
 				_T("ビットマップのロードに失敗しました"),
@@ -263,12 +277,18 @@ LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPara
 
 		hDC = BeginPaint(hChdWnd, &ps);
 		hCompatDC = CreateCompatibleDC(hDC);
-		SelectObject(hCompatDC, hBitmap);
+		if (count % 2 == 0){
+			SelectObject(hCompatDC, hBitmap1);
+		}
+		else{
+			SelectObject(hCompatDC, hBitmap2);
+		}
 
 		BitBlt(hDC, 0, 0, CHD_WIDTH, CHD_HEIGHT, hCompatDC, 0, 0, SRCCOPY);
 
 		DeleteDC(hCompatDC);
-		DeleteObject(hBitmap);
+		DeleteObject(hBitmap1);
+		DeleteObject(hBitmap2);
 		EndPaint(hChdWnd, &ps);
 		break;
 
