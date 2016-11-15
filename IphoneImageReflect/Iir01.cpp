@@ -17,16 +17,16 @@ LRESULT CALLBACK ChdProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 BOOL InitApp(HINSTANCE, WNDPROC, LPCTSTR);
 BOOL InitInstance(HINSTANCE, int, LPCTSTR);
 
-static TCHAR szClassName[] = _T("Enterprise_Reflect");
+static TCHAR szClassName[] = _T("Animal_Reflect");
 static TCHAR szchClassName[] = _T("child");
-static TCHAR szTitle[] = _T("SSN Enterprise");
+static TCHAR szTitle[] = _T("Animal Reflect");
 
 int img_start_x = 83;
 int img_start_y = 131;
 int img_end_x = 482;
 int img_end_y = 233;
 
-int count = 1;      //初期動作を指定
+int count = 1;      //動作を指定
 
 int WINAPI WinMain(HINSTANCE hCurInst, HINSTANCE hPrevInst, LPSTR lpsCmdLine, int nCmdShow) {
 	MSG msg;
@@ -155,8 +155,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 			szchClassName,		// ウィンドウクラス名
 			NULL,				// タイトルバーに表示する文字列
 			WS_CHILD,			// ウィンドウの種類
-			83,					// ウィンドウを表示する位置(X座標）
-			29,					// ウィンドウを表示する位置(Y座標）
+			0,					// ウィンドウを表示する位置(X座標）
+			0,					// ウィンドウを表示する位置(Y座標）
 			CHD_WIDTH,			// ウィンドウの幅
 			CHD_HEIGHT,			// ウィンドウの高さ
 			hWnd,				// 親ウィンドウのウィンドウハンドル
@@ -230,7 +230,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 
 LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 	static HBITMAP	hBitmap1, hBitmap2;
-	static HBITMAP	hPrevBitmap;
+	//static HBITMAP	hPrevBitmap;
 	HINSTANCE		hInst;
 	PAINTSTRUCT	ps;
 	HDC			hDC;
@@ -287,8 +287,8 @@ LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPara
 		BitBlt(hDC, 0, 0, CHD_WIDTH, CHD_HEIGHT, hCompatDC, 0, 0, SRCCOPY);
 
 		DeleteDC(hCompatDC);
-		DeleteObject(hBitmap1);
 		DeleteObject(hBitmap2);
+		DeleteObject(hBitmap1);
 		EndPaint(hChdWnd, &ps);
 		break;
 
