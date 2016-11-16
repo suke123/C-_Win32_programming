@@ -12,7 +12,8 @@ lir01.cpp	(IphoneImageReflection)	 catを動かす
 
 // プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
-LRESULT CALLBACK ChdProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+LRESULT CALLBACK ChdProc1(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+LRESULT CALLBACK ChdProc2(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 BOOL InitApp(HINSTANCE, WNDPROC, LPCTSTR);
 BOOL InitInstance(HINSTANCE, int, LPCTSTR);
@@ -25,6 +26,8 @@ int img_start_x = 83;
 int img_start_y = 131;
 int img_end_x = 482;
 int img_end_y = 233;
+int min_y = 29;
+int center_screen = 283;
 
 int count = 1;      //動作を指定
 
@@ -136,7 +139,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 
 		hBrushYellow = CreateSolidBrush(RGB(255, 255, 0));
 		SelectObject(hDC, hBrushYellow);
-		Rectangle(hDC, 83, 29, 569, 303);            //iPhone7の画面サイズ
+		Rectangle(hDC, 83, 29, 571, 303);            //iPhone7の画面サイズ
 
 		SelectObject(hDC, hBrushBlack);
 		Ellipse(hDC, 584, 144, 628, 188);            //ボタンの内丸
@@ -149,8 +152,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	
 	case WM_CREATE:
 		hInst = ((LPCREATESTRUCT)lParam)->hInstance;
-		InitApp(hInst, ChdProc, szchClassName);
-
+		InitApp(hInst, ChdProc1, szchClassName);
 		hChdWnd = CreateWindow(
 			szchClassName,		// ウィンドウクラス名
 			NULL,				// タイトルバーに表示する文字列
@@ -177,39 +179,37 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 
 		switch (direction) {
 
-			/**
-			**右向きに移動する時の処理
-			**/
+			
+		//右向きに移動する時の処理	
 		case right:
-			if ((x >= 83 && y <= 131) && x <= 283){
+			if ((x >= img_start_x && y <= img_start_y) && x <= center_screen){
 				x += go_x;     
 				y -= go_y;				
 			}
-			if (y >= 29 && x >= 283 && y <= 131){
+			if (y >= min_y && x >= center_screen && y <= img_start_y){
 				x += go_x;
 				y += go_y;
 			}
 			if (x >= img_end_x){
 				direction = left;
+				//count += 1;
 			}
-
 			break;
 
-			/**
-			**左向きに移動する時の処理
-			**/
+			
+		//左向きに移動する時の処理	
 		case left:
-			if (x <= 483 && x >= 283 && y <= 233){
+			if (x <= img_end_x+1 && x >= center_screen && y <= img_end_y){
 				x -= go_x;
 				y += go_y;
 			}
-			if (x <= 283 && y <= 233 && x >= 83){
+			if (x <= center_screen && y <= img_end_y && x >= img_start_x){
 				x -= go_x;
 				y -= go_y;
 			}
 			if (x <= img_start_x){
-				count++;
 				direction = right;
+				count += 1;
 			}
 			break;
 		}
@@ -228,8 +228,98 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	return 0;
 }
 
-LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lParam) {
-	static HBITMAP	hBitmap1, hBitmap2;
+LRESULT CALLBACK ChdProc1(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+	static HBITMAP	hBitmap1;
+	static HBITMAP	hPrevBitmap;
+	HINSTANCE		hInst;
+	PAINTSTRUCT	ps;
+	HDC			hDC;
+	HDC			hCompatDC;
+
+	if (count % 2 == 0){
+		switch (message) {
+		case WM_PAINT:
+			DeleteObject(hBitmap1);
+			hInst = (HINSTANCE)GetWindowLong(hChdWnd, GWL_HINSTANCE);
+
+			hBitmap1 = (HBITMAP)LoadImage(
+				hInst,
+				_T("dog2.bmp"),
+				IMAGE_BITMAP,
+				0,
+				0,
+				LR_LOADFROMFILE);
+
+			if (hBitmap1 == NULL) {
+				MessageBox(
+					hChdWnd,
+					_T("ビットマップのロードに失敗しました"),
+					_T("エラー"),
+					MB_OK | MB_ICONWARNING
+					);
+				return 0;
+			}
+
+			hDC = BeginPaint(hChdWnd, &ps);
+			hCompatDC = CreateCompatibleDC(hDC);
+			SelectObject(hCompatDC, hBitmap1);
+
+			BitBlt(hDC, 0, 0, CHD_WIDTH, CHD_HEIGHT, hCompatDC, 0, 0, SRCCOPY);
+
+			DeleteDC(hCompatDC);
+			DeleteObject(hBitmap1);
+			EndPaint(hChdWnd, &ps);
+			break;
+
+		default:
+			return(DefWindowProc(hChdWnd, message, wParam, lParam));
+		}
+	}
+
+	else{
+		switch (message) {
+		case WM_PAINT:
+			DeleteObject(hBitmap1);
+			hInst = (HINSTANCE)GetWindowLong(hChdWnd, GWL_HINSTANCE);
+
+			hBitmap1 = (HBITMAP)LoadImage(
+				hInst,
+				_T("cat5.bmp"),
+				IMAGE_BITMAP,
+				0,
+				0,
+				LR_LOADFROMFILE);
+
+			if (hBitmap1 == NULL) {
+				MessageBox(
+					hChdWnd,
+					_T("ビットマップのロードに失敗しました"),
+					_T("エラー"),
+					MB_OK | MB_ICONWARNING
+					);
+				return 0;
+			}
+
+			hDC = BeginPaint(hChdWnd, &ps);
+			hCompatDC = CreateCompatibleDC(hDC);
+			SelectObject(hCompatDC, hBitmap1);
+
+			BitBlt(hDC, 0, 0, CHD_WIDTH, CHD_HEIGHT, hCompatDC, 0, 0, SRCCOPY);
+
+			DeleteDC(hCompatDC);
+			DeleteObject(hBitmap1);
+			EndPaint(hChdWnd, &ps);
+			break;
+
+		default:
+			return(DefWindowProc(hChdWnd, message, wParam, lParam));
+		}
+	}
+	return 0;
+} 
+
+/*LRESULT CALLBACK ChdProc2(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+	static HBITMAP	hBitmap2;
 	//static HBITMAP	hPrevBitmap;
 	HINSTANCE		hInst;
 	PAINTSTRUCT	ps;
@@ -240,14 +330,6 @@ LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPara
 	case WM_PAINT:
 		hInst = (HINSTANCE)GetWindowLong(hChdWnd, GWL_HINSTANCE);
 
-		hBitmap1 = (HBITMAP)LoadImage(
-			hInst,
-			_T("dog2.bmp"),
-			IMAGE_BITMAP,
-			0,
-			0,
-			LR_LOADFROMFILE);
-
 		hBitmap2 = (HBITMAP)LoadImage(
 			hInst,
 			_T("cat5.bmp"),
@@ -256,15 +338,6 @@ LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPara
 			0,
 			LR_LOADFROMFILE);
 
-		if (hBitmap1 == NULL) {
-			MessageBox(
-				hChdWnd,
-				_T("ビットマップのロードに失敗しました"),
-				_T("エラー"),
-				MB_OK | MB_ICONWARNING
-				);
-			return 0;
-		}
 		if (hBitmap2 == NULL) {
 			MessageBox(
 				hChdWnd,
@@ -277,18 +350,12 @@ LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPara
 
 		hDC = BeginPaint(hChdWnd, &ps);
 		hCompatDC = CreateCompatibleDC(hDC);
-		if (count % 2 == 0){
-			SelectObject(hCompatDC, hBitmap1);
-		}
-		else{
-			SelectObject(hCompatDC, hBitmap2);
-		}
-
+		SelectObject(hCompatDC, hBitmap2);
+		
 		BitBlt(hDC, 0, 0, CHD_WIDTH, CHD_HEIGHT, hCompatDC, 0, 0, SRCCOPY);
 
 		DeleteDC(hCompatDC);
 		DeleteObject(hBitmap2);
-		DeleteObject(hBitmap1);
 		EndPaint(hChdWnd, &ps);
 		break;
 
@@ -296,4 +363,4 @@ LRESULT CALLBACK ChdProc(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPara
 		return(DefWindowProc(hChdWnd, message, wParam, lParam));
 	}
 	return 0;
-}
+}*/
