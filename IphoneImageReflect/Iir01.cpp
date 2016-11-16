@@ -13,7 +13,7 @@ lir01.cpp	(IphoneImageReflection)	 catを動かす
 // プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 LRESULT CALLBACK ChdProc1(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
-LRESULT CALLBACK ChdProc2(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+//LRESULT CALLBACK ChdProc2(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 BOOL InitApp(HINSTANCE, WNDPROC, LPCTSTR);
 BOOL InitInstance(HINSTANCE, int, LPCTSTR);
