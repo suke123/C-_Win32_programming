@@ -279,7 +279,6 @@ LRESULT CALLBACK ChdProc1(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPar
 	else{
 		switch (message) {
 		case WM_PAINT:
-			DeleteObject(hBitmap1);
 			hInst = (HINSTANCE)GetWindowLong(hChdWnd, GWL_HINSTANCE);
 
 			hBitmap1 = (HBITMAP)LoadImage(
