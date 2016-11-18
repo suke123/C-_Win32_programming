@@ -308,6 +308,7 @@ LRESULT CALLBACK ChdProc1(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPar
 			DeleteDC(hCompatDC);
 			DeleteObject(hBitmap1);
 			EndPaint(hChdWnd, &ps);
+
 			break;
 
 		default:
