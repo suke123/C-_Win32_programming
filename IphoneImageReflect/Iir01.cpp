@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------
-lir01.cpp	(IphoneImageReflection)	 catを動かす
+lir01.cpp	(IphoneImageReflection)	 cat,dogを動かす
 ---------------------------------------------------------------------------*/
 
 #include <windows.h>
@@ -13,7 +13,6 @@ lir01.cpp	(IphoneImageReflection)	 catを動かす
 // プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 LRESULT CALLBACK ChdProc1(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
-//LRESULT CALLBACK ChdProc2(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 BOOL InitApp(HINSTANCE, WNDPROC, LPCTSTR);
 BOOL InitInstance(HINSTANCE, int, LPCTSTR);
@@ -179,7 +178,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 
 		switch (direction) {
 
-			
 		//右向きに移動する時の処理	
 		case right:
 			if ((x >= img_start_x && y <= img_start_y) && x <= center_screen){
