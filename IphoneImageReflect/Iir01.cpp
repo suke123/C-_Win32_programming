@@ -76,12 +76,15 @@ LRESULT CALLBACK ChdProc1(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPar
 	case WM_PAINT:
 		hDC = BeginPaint(hChdWnd, &ps);
 		hCompatDC = CreateCompatibleDC(hDC);
+		//countの値があまり1ならイヌ画像表示
 		if (count % 3 == 1){
 			SelectObject(hCompatDC, hBitmap1);
 		}
+		//countの値があまり2ならネコ画像表示
 		else if (count % 3 == 2){
 			SelectObject(hCompatDC, hBitmap2);
 		}
+		//countの値があまり0ならパンダ画像表示
 		else{
 			SelectObject(hCompatDC, hBitmap3);
 		}
