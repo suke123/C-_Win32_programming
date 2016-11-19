@@ -48,6 +48,7 @@ LRESULT CALLBACK ChdProc1(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPar
 
 	case WM_CREATE:
 		hInst = (HINSTANCE)GetWindowLong(hChdWnd, GWL_HINSTANCE);
+		//イヌ画像の生成
 		hBitmap1 = (HBITMAP)LoadImage(
 			hInst,
 			_T("dog2.bmp"),
@@ -55,6 +56,7 @@ LRESULT CALLBACK ChdProc1(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPar
 			0,
 			0,
 			LR_LOADFROMFILE);
+		//ネコ画像の生成
 		hBitmap2 = (HBITMAP)LoadImage(
 			hInst,
 			_T("cat5.bmp"),
@@ -62,6 +64,7 @@ LRESULT CALLBACK ChdProc1(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPar
 			0,
 			0,
 			LR_LOADFROMFILE);
+		//パンダ画像の生成
 		hBitmap3 = (HBITMAP)LoadImage(
 			hInst,
 			_T("panda2.bmp"),
