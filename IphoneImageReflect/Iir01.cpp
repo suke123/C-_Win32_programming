@@ -7,8 +7,8 @@ lir01.cpp	(IphoneImageReflection)	 cat,dogを動かす
 
 #define	ID_MYTIMER	(32767)
 #define	ID_MYCHILD	(100)
-#define	CHD_WIDTH	(87)
-#define	CHD_HEIGHT	(70)
+#define	CHD_WIDTH	(87)//画像横ピクセル
+#define	CHD_HEIGHT	(70)//画像縦ピクセル
 
 // プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
@@ -21,12 +21,12 @@ static TCHAR szClassName[] = _T("Animal_Reflect");
 static TCHAR szchClassName[] = _T("child");
 static TCHAR szTitle[] = _T("Animal Reflect");
 
-int img_start_x = 83;
-int img_start_y = 131;
-int img_end_x = 482;
-int img_end_y = 233;
-int min_y = 29;
-int center_screen = 283;
+int img_start_x = 83;		//スタート地点のx座標
+int img_start_y = 131;		//スタート地点のy座標
+int img_end_x = 482;		//右端地点のx座標
+int img_end_y = 233;		//下地点でのy座標
+int min_y = 29;				//上地点でのy座標
+int center_screen = 283;	//上下地点でのx座標
 
 int count = 1;      //動作を指定
 
@@ -290,126 +290,3 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 
 	return 0;
 }
-
-
-	/*if (count % 3 == 0){
-		switch (message) {
-		case WM_PAINT:
-			DeleteObject(hBitmap1);
-			hInst = (HINSTANCE)GetWindowLong(hChdWnd, GWL_HINSTANCE);
-
-			hBitmap1 = (HBITMAP)LoadImage(
-				hInst,
-				_T("dog2.bmp"),
-				IMAGE_BITMAP,
-				0,
-				0,
-				LR_LOADFROMFILE);
-
-			if (hBitmap1 == NULL) {
-				MessageBox(
-					hChdWnd,
-					_T("ビットマップのロードに失敗しました"),
-					_T("エラー"),
-					MB_OK | MB_ICONWARNING
-					);
-				return 0;
-			}
-
-			hDC = BeginPaint(hChdWnd, &ps);
-			hCompatDC = CreateCompatibleDC(hDC);
-			SelectObject(hCompatDC, hBitmap1);
-
-			BitBlt(hDC, 0, 0, CHD_WIDTH, CHD_HEIGHT, hCompatDC, 0, 0, SRCCOPY);
-
-			DeleteDC(hCompatDC);
-			DeleteObject(hBitmap1);
-			EndPaint(hChdWnd, &ps);
-			break;
-
-		default:
-			return(DefWindowProc(hChdWnd, message, wParam, lParam));
-		}
-	}
-
-	else if (count % 3 == 1){
-		switch (message) {
-		case WM_PAINT:
-			DeleteObject(hBitmap1);
-			hInst = (HINSTANCE)GetWindowLong(hChdWnd, GWL_HINSTANCE);
-
-			hBitmap1 = (HBITMAP)LoadImage(
-				hInst,
-				_T("panda2.bmp"),
-				IMAGE_BITMAP,
-				0,
-				0,
-				LR_LOADFROMFILE);
-
-			if (hBitmap1 == NULL) {
-				MessageBox(
-					hChdWnd,
-					_T("ビットマップのロードに失敗しました"),
-					_T("エラー"),
-					MB_OK | MB_ICONWARNING
-					);
-				return 0;
-			}
-
-			hDC = BeginPaint(hChdWnd, &ps);
-			hCompatDC = CreateCompatibleDC(hDC);
-			SelectObject(hCompatDC, hBitmap1);
-
-			BitBlt(hDC, 0, 0, CHD_WIDTH, CHD_HEIGHT, hCompatDC, 0, 0, SRCCOPY);
-
-			DeleteDC(hCompatDC);
-			DeleteObject(hBitmap1);
-			EndPaint(hChdWnd, &ps);
-			break;
-
-		default:
-			return(DefWindowProc(hChdWnd, message, wParam, lParam));
-		}
-	}
-
-	else{
-		switch (message) {
-		case WM_PAINT:
-			hInst = (HINSTANCE)GetWindowLong(hChdWnd, GWL_HINSTANCE);
-
-			hBitmap1 = (HBITMAP)LoadImage(
-				hInst,
-				_T("cat5.bmp"),
-				IMAGE_BITMAP,
-				0,
-				0,
-				LR_LOADFROMFILE);
-
-			if (hBitmap1 == NULL) {
-				MessageBox(
-					hChdWnd,
-					_T("ビットマップのロードに失敗しました"),
-					_T("エラー"),
-					MB_OK | MB_ICONWARNING
-					);
-				return 0;
-			}
-
-			hDC = BeginPaint(hChdWnd, &ps);
-			hCompatDC = CreateCompatibleDC(hDC);
-			SelectObject(hCompatDC, hBitmap1);
-
-			BitBlt(hDC, 0, 0, CHD_WIDTH, CHD_HEIGHT, hCompatDC, 0, 0, SRCCOPY);
-
-			DeleteDC(hCompatDC);
-			DeleteObject(hBitmap1);
-			EndPaint(hChdWnd, &ps);
-
-			break;
-
-		default:
-			return(DefWindowProc(hChdWnd, message, wParam, lParam));
-		}
-	}*/
-//	return 0;
-//}
