@@ -193,8 +193,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 				//count += 1;
 			}
 			break;
-
-			
+						
 		//左向きに移動する時の処理	
 		case left:
 			if (x <= img_end_x+1 && x >= center_screen && y <= img_end_y){
@@ -234,7 +233,7 @@ LRESULT CALLBACK ChdProc1(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPar
 	HDC			hDC;
 	HDC			hCompatDC;
 
-	if (count % 2 == 0){
+	if (count % 3 == 0){
 		switch (message) {
 		case WM_PAINT:
 			DeleteObject(hBitmap1);
@@ -243,6 +242,46 @@ LRESULT CALLBACK ChdProc1(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPar
 			hBitmap1 = (HBITMAP)LoadImage(
 				hInst,
 				_T("dog2.bmp"),
+				IMAGE_BITMAP,
+				0,
+				0,
+				LR_LOADFROMFILE);
+
+			if (hBitmap1 == NULL) {
+				MessageBox(
+					hChdWnd,
+					_T("ビットマップのロードに失敗しました"),
+					_T("エラー"),
+					MB_OK | MB_ICONWARNING
+					);
+				return 0;
+			}
+
+			hDC = BeginPaint(hChdWnd, &ps);
+			hCompatDC = CreateCompatibleDC(hDC);
+			SelectObject(hCompatDC, hBitmap1);
+
+			BitBlt(hDC, 0, 0, CHD_WIDTH, CHD_HEIGHT, hCompatDC, 0, 0, SRCCOPY);
+
+			DeleteDC(hCompatDC);
+			DeleteObject(hBitmap1);
+			EndPaint(hChdWnd, &ps);
+			break;
+
+		default:
+			return(DefWindowProc(hChdWnd, message, wParam, lParam));
+		}
+	}
+
+	else if (count % 3 == 1){
+		switch (message) {
+		case WM_PAINT:
+			DeleteObject(hBitmap1);
+			hInst = (HINSTANCE)GetWindowLong(hChdWnd, GWL_HINSTANCE);
+
+			hBitmap1 = (HBITMAP)LoadImage(
+				hInst,
+				_T("panda2.bmp"),
 				IMAGE_BITMAP,
 				0,
 				0,
@@ -315,50 +354,3 @@ LRESULT CALLBACK ChdProc1(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPar
 	}
 	return 0;
 } 
-
-/*LRESULT CALLBACK ChdProc2(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lParam) {
-	static HBITMAP	hBitmap2;
-	//static HBITMAP	hPrevBitmap;
-	HINSTANCE		hInst;
-	PAINTSTRUCT	ps;
-	HDC			hDC;
-	HDC			hCompatDC;
-
-	switch (message) {
-	case WM_PAINT:
-		hInst = (HINSTANCE)GetWindowLong(hChdWnd, GWL_HINSTANCE);
-
-		hBitmap2 = (HBITMAP)LoadImage(
-			hInst,
-			_T("cat5.bmp"),
-			IMAGE_BITMAP,
-			0,
-			0,
-			LR_LOADFROMFILE);
-
-		if (hBitmap2 == NULL) {
-			MessageBox(
-				hChdWnd,
-				_T("ビットマップのロードに失敗しました"),
-				_T("エラー"),
-				MB_OK | MB_ICONWARNING
-				);
-			return 0;
-		}
-
-		hDC = BeginPaint(hChdWnd, &ps);
-		hCompatDC = CreateCompatibleDC(hDC);
-		SelectObject(hCompatDC, hBitmap2);
-		
-		BitBlt(hDC, 0, 0, CHD_WIDTH, CHD_HEIGHT, hCompatDC, 0, 0, SRCCOPY);
-
-		DeleteDC(hCompatDC);
-		DeleteObject(hBitmap2);
-		EndPaint(hChdWnd, &ps);
-		break;
-
-	default:
-		return(DefWindowProc(hChdWnd, message, wParam, lParam));
-	}
-	return 0;
-}*/
