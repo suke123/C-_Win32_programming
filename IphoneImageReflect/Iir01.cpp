@@ -30,6 +30,72 @@ int center_screen = 283;
 
 int count = 1;      //ìÆçÏÇéwíË
 
+LRESULT CALLBACK ChdProc1(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+	static HBITMAP	hBitmap1, hBitmap2, hBitmap3, hBitmap4;
+	static HBITMAP	hPrevBitmap;
+	HINSTANCE		hInst;
+	PAINTSTRUCT	ps;
+	HDC			hDC;
+	HDC			hCompatDC;
+
+	switch (message) {
+	case WM_DESTROY:
+		DeleteObject(hBitmap1);
+		DeleteObject(hBitmap2);
+		DeleteObject(hBitmap3);
+		PostQuitMessage(0);
+		return 0;
+
+	case WM_CREATE:
+		hInst = (HINSTANCE)GetWindowLong(hChdWnd, GWL_HINSTANCE);
+		hBitmap1 = (HBITMAP)LoadImage(
+			hInst,
+			_T("dog2.bmp"),
+			IMAGE_BITMAP,
+			0,
+			0,
+			LR_LOADFROMFILE);
+		hBitmap2 = (HBITMAP)LoadImage(
+			hInst,
+			_T("cat5.bmp"),
+			IMAGE_BITMAP,
+			0,
+			0,
+			LR_LOADFROMFILE);
+		hBitmap3 = (HBITMAP)LoadImage(
+			hInst,
+			_T("panda2.bmp"),
+			IMAGE_BITMAP,
+			0,
+			0,
+			LR_LOADFROMFILE);
+
+	case WM_PAINT:
+		hDC = BeginPaint(hChdWnd, &ps);
+		hCompatDC = CreateCompatibleDC(hDC);
+		if (count % 3 == 1){
+			SelectObject(hCompatDC, hBitmap1);
+		}
+		else if (count % 3 == 2){
+			SelectObject(hCompatDC, hBitmap2);
+		}
+		else{
+			SelectObject(hCompatDC, hBitmap3);
+		}
+
+		BitBlt(hDC, 0, 0, CHD_WIDTH, CHD_HEIGHT, hCompatDC, 0, 0, SRCCOPY);
+
+		DeleteDC(hCompatDC);
+		EndPaint(hChdWnd, &ps);
+		break;
+
+	default:
+		return(DefWindowProc(hChdWnd, message, wParam, lParam));
+	}
+	return 0;
+
+}
+
 int WINAPI WinMain(HINSTANCE hCurInst, HINSTANCE hPrevInst, LPSTR lpsCmdLine, int nCmdShow) {
 	MSG msg;
 
@@ -225,15 +291,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	return 0;
 }
 
-LRESULT CALLBACK ChdProc1(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lParam) {
-	static HBITMAP	hBitmap1;
-	static HBITMAP	hPrevBitmap;
-	HINSTANCE		hInst;
-	PAINTSTRUCT	ps;
-	HDC			hDC;
-	HDC			hCompatDC;
 
-	if (count % 3 == 0){
+	/*if (count % 3 == 0){
 		switch (message) {
 		case WM_PAINT:
 			DeleteObject(hBitmap1);
@@ -351,6 +410,6 @@ LRESULT CALLBACK ChdProc1(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPar
 		default:
 			return(DefWindowProc(hChdWnd, message, wParam, lParam));
 		}
-	}
-	return 0;
-} 
+	}*/
+//	return 0;
+//}
