@@ -51,7 +51,7 @@ LRESULT CALLBACK ChdProc1(HWND hChdWnd, UINT message, WPARAM wParam, LPARAM lPar
 		//ÉCÉkâÊëúÇÃê∂ê¨
 		hBitmap1 = (HBITMAP)LoadImage(
 			hInst,
-			_T("dog2.bmp"),
+			_T("rabbit.bmp"),
 			IMAGE_BITMAP,
 			0,
 			0,
