@@ -262,7 +262,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 			}
 			if (x >= img_end_x){
 				direction = left;
-				//count += 1;
 			}
 			break;
 						
