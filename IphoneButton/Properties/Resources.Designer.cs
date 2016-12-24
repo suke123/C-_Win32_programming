@@ -73,6 +73,16 @@ namespace IphoneButton.Properties {
         /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
+        internal static System.Drawing.Bitmap BITMAP3 {
+            get {
+                object obj = ResourceManager.GetObject("BITMAP3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
         internal static System.Drawing.Bitmap iphone画面 {
             get {
                 object obj = ResourceManager.GetObject("iphone画面", resourceCulture);
