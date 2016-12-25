@@ -249,6 +249,7 @@
             this.calculator.Size = new System.Drawing.Size(60, 58);
             this.calculator.TabIndex = 32;
             this.calculator.UseVisualStyleBackColor = true;
+            this.calculator.Click += new System.EventHandler(this.calculator_Click);
             // 
             // camera
             // 

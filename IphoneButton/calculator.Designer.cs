@@ -49,11 +49,15 @@
             // 
             // leftText
             // 
+            this.leftText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.leftText.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.leftText.Location = new System.Drawing.Point(12, 49);
             this.leftText.Multiline = true;
             this.leftText.Name = "leftText";
-            this.leftText.Size = new System.Drawing.Size(104, 33);
+            this.leftText.Size = new System.Drawing.Size(104, 27);
             this.leftText.TabIndex = 0;
+            this.leftText.Text = "1";
+            this.leftText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // addButton
             // 
@@ -185,11 +189,13 @@
             // 
             // rightText
             // 
+            this.rightText.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.rightText.Location = new System.Drawing.Point(243, 49);
             this.rightText.Multiline = true;
             this.rightText.Name = "rightText";
-            this.rightText.Size = new System.Drawing.Size(104, 33);
+            this.rightText.Size = new System.Drawing.Size(104, 27);
             this.rightText.TabIndex = 14;
+            this.rightText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // calcuText
             // 

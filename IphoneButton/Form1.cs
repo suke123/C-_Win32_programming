@@ -27,5 +27,11 @@ namespace IphoneButton
             }
         }
 
+        private void calculator_Click(object sender, EventArgs e)
+        {
+            Form calculator = new calculator();
+            calculator.Show();
+        }
+
     }
 }
