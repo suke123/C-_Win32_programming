@@ -39,10 +39,12 @@
             this.result = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.quitButton = new System.Windows.Forms.Button();
+            this.rightText = new System.Windows.Forms.TextBox();
             this.calcuText = new System.Windows.Forms.TextBox();
             this.resultText = new System.Windows.Forms.TextBox();
+            this.groupBox = new System.Windows.Forms.GroupBox();
+            this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // leftText
@@ -57,7 +59,7 @@
             // 
             this.addButton.AutoSize = true;
             this.addButton.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.addButton.Location = new System.Drawing.Point(140, 51);
+            this.addButton.Location = new System.Drawing.Point(15, 19);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(85, 20);
             this.addButton.TabIndex = 2;
@@ -69,7 +71,7 @@
             // 
             this.subButton.AutoSize = true;
             this.subButton.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.subButton.Location = new System.Drawing.Point(140, 77);
+            this.subButton.Location = new System.Drawing.Point(15, 45);
             this.subButton.Name = "subButton";
             this.subButton.Size = new System.Drawing.Size(85, 20);
             this.subButton.TabIndex = 3;
@@ -81,7 +83,7 @@
             // 
             this.mulButton.AutoSize = true;
             this.mulButton.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.mulButton.Location = new System.Drawing.Point(140, 103);
+            this.mulButton.Location = new System.Drawing.Point(15, 71);
             this.mulButton.Name = "mulButton";
             this.mulButton.Size = new System.Drawing.Size(85, 20);
             this.mulButton.TabIndex = 4;
@@ -93,7 +95,7 @@
             // 
             this.divButton.AutoSize = true;
             this.divButton.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.divButton.Location = new System.Drawing.Point(140, 129);
+            this.divButton.Location = new System.Drawing.Point(15, 97);
             this.divButton.Name = "divButton";
             this.divButton.Size = new System.Drawing.Size(85, 20);
             this.divButton.TabIndex = 5;
@@ -105,7 +107,7 @@
             // 
             this.perButton.AutoSize = true;
             this.perButton.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.perButton.Location = new System.Drawing.Point(140, 155);
+            this.perButton.Location = new System.Drawing.Point(15, 123);
             this.perButton.Name = "perButton";
             this.perButton.Size = new System.Drawing.Size(85, 20);
             this.perButton.TabIndex = 6;
@@ -122,7 +124,6 @@
             this.label1.Size = new System.Drawing.Size(40, 16);
             this.label1.TabIndex = 8;
             this.label1.Text = "左辺";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -133,7 +134,6 @@
             this.label2.Size = new System.Drawing.Size(40, 16);
             this.label2.TabIndex = 9;
             this.label2.Text = "右辺";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // result
             // 
@@ -158,7 +158,6 @@
             this.label3.Size = new System.Drawing.Size(79, 20);
             this.label3.TabIndex = 11;
             this.label3.Text = "計算式：";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -169,29 +168,29 @@
             this.label4.Size = new System.Drawing.Size(59, 20);
             this.label4.TabIndex = 12;
             this.label4.Text = "結果：";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // button1
+            // quitButton
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkOrange;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.button1.Location = new System.Drawing.Point(12, 291);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 27);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Quit";
-            this.button1.UseVisualStyleBackColor = false;
+            this.quitButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.quitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.quitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.quitButton.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.quitButton.Location = new System.Drawing.Point(12, 291);
+            this.quitButton.Name = "quitButton";
+            this.quitButton.Size = new System.Drawing.Size(90, 27);
+            this.quitButton.TabIndex = 13;
+            this.quitButton.Text = "Quit";
+            this.quitButton.UseVisualStyleBackColor = false;
+            this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
             // 
-            // textBox1
+            // rightText
             // 
-            this.textBox1.Location = new System.Drawing.Point(243, 49);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(104, 33);
-            this.textBox1.TabIndex = 14;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.rightText.Location = new System.Drawing.Point(243, 49);
+            this.rightText.Multiline = true;
+            this.rightText.Name = "rightText";
+            this.rightText.Size = new System.Drawing.Size(104, 33);
+            this.rightText.TabIndex = 14;
+            this.rightText.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // calcuText
             // 
@@ -216,29 +215,42 @@
             this.resultText.Size = new System.Drawing.Size(224, 20);
             this.resultText.TabIndex = 16;
             // 
+            // groupBox
+            // 
+            this.groupBox.Controls.Add(this.perButton);
+            this.groupBox.Controls.Add(this.addButton);
+            this.groupBox.Controls.Add(this.subButton);
+            this.groupBox.Controls.Add(this.mulButton);
+            this.groupBox.Controls.Add(this.divButton);
+            this.groupBox.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.groupBox.Location = new System.Drawing.Point(122, 30);
+            this.groupBox.Name = "groupBox";
+            this.groupBox.Size = new System.Drawing.Size(115, 151);
+            this.groupBox.TabIndex = 17;
+            this.groupBox.TabStop = false;
+            this.groupBox.Text = "演算子";
+            // 
             // calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(359, 330);
+            this.Controls.Add(this.groupBox);
             this.Controls.Add(this.resultText);
             this.Controls.Add(this.calcuText);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.rightText);
+            this.Controls.Add(this.quitButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.result);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.perButton);
-            this.Controls.Add(this.divButton);
-            this.Controls.Add(this.mulButton);
-            this.Controls.Add(this.subButton);
-            this.Controls.Add(this.addButton);
             this.Controls.Add(this.leftText);
             this.Name = "calculator";
             this.Text = "calculator";
+            this.groupBox.ResumeLayout(false);
+            this.groupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,9 +269,10 @@
         private System.Windows.Forms.Button result;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button quitButton;
+        private System.Windows.Forms.TextBox rightText;
         private System.Windows.Forms.TextBox calcuText;
         private System.Windows.Forms.TextBox resultText;
+        private System.Windows.Forms.GroupBox groupBox;
     }
 }

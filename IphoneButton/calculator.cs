@@ -17,24 +17,14 @@ namespace IphoneButton
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void result_Click(object sender, EventArgs e)
         {
+            int left = Convert.ToInt32(leftText.Text);
+            int right = Convert.ToInt32(rightText.Text);
 
-        }
+            if(){
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -42,7 +32,7 @@ namespace IphoneButton
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void quitButton_Click(object sender, EventArgs e)
         {
 
         }
