@@ -201,7 +201,7 @@
             this.calcuText.BackColor = System.Drawing.SystemColors.Menu;
             this.calcuText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.calcuText.Font = new System.Drawing.Font("MS UI Gothic", 13F);
-            this.calcuText.ForeColor = System.Drawing.SystemColors.Control;
+            this.calcuText.ForeColor = System.Drawing.SystemColors.WindowText;
             this.calcuText.Location = new System.Drawing.Point(108, 229);
             this.calcuText.Multiline = true;
             this.calcuText.Name = "calcuText";
