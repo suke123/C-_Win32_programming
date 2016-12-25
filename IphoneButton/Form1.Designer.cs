@@ -53,7 +53,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // calendar
@@ -71,13 +70,12 @@
             this.calendar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.calendar.Size = new System.Drawing.Size(61, 58);
             this.calendar.TabIndex = 0;
-            this.calendar.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.calendar.UseVisualStyleBackColor = true;
             // 
             // watch
             // 
             this.watch.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP3;
-            this.watch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.watch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.watch.FlatAppearance.BorderSize = 0;
             this.watch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.watch.Location = new System.Drawing.Point(104, 98);
@@ -354,13 +352,6 @@
             this.label12.TabIndex = 41;
             this.label12.Text = "メッセージ";
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(56, 308);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(121, 19);
-            this.dateTimePicker1.TabIndex = 42;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -369,7 +360,6 @@
             this.BackgroundImage = global::IphoneButton.Properties.Resources.iphone画面1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(336, 635);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -399,7 +389,7 @@
             this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "IphoneButton";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,7 +422,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 
