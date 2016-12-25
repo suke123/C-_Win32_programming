@@ -190,7 +190,6 @@
             this.rightText.Name = "rightText";
             this.rightText.Size = new System.Drawing.Size(104, 33);
             this.rightText.TabIndex = 14;
-            this.rightText.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // calcuText
             // 

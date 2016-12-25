@@ -22,14 +22,30 @@ namespace IphoneButton
             int left = Convert.ToInt32(leftText.Text);
             int right = Convert.ToInt32(rightText.Text);
 
-            if(){
-
+            if(addButton.Checked){
+                calcuText.Text = Convert.ToString(left) + "　＋　" + Convert.ToString(right);
+                resultText.Text = Convert.ToString(left + right);
             }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            else if (subButton.Checked)
+            {
+                calcuText.Text = Convert.ToString(left) + "　－　" + Convert.ToString(right);
+                resultText.Text = Convert.ToString(left - right);
+            }
+            else if (mulButton.Checked)
+            {
+                calcuText.Text = Convert.ToString(left) + "　×　" + Convert.ToString(right);
+                resultText.Text = Convert.ToString(left * right);
+            }
+            else if (divButton.Checked)
+            {
+                calcuText.Text = Convert.ToString(left) + "　÷　" + Convert.ToString(right);
+                resultText.Text = Convert.ToString(left / right);
+            }
+            else if (perButton.Checked)
+            {
+                calcuText.Text = Convert.ToString(left) + "　％　" + Convert.ToString(right);
+                resultText.Text = Convert.ToString(left % right);
+            }
         }
 
         private void quitButton_Click(object sender, EventArgs e)
