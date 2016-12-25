@@ -56,7 +56,6 @@
             this.leftText.Name = "leftText";
             this.leftText.Size = new System.Drawing.Size(104, 27);
             this.leftText.TabIndex = 0;
-            this.leftText.Text = "1";
             this.leftText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // addButton
