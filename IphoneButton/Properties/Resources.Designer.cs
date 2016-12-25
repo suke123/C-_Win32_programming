@@ -63,6 +63,66 @@ namespace IphoneButton.Properties {
         /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
+        internal static System.Drawing.Bitmap BITMAP1 {
+            get {
+                object obj = ResourceManager.GetObject("BITMAP1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap BITMAP10 {
+            get {
+                object obj = ResourceManager.GetObject("BITMAP10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap BITMAP11 {
+            get {
+                object obj = ResourceManager.GetObject("BITMAP11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap BITMAP12 {
+            get {
+                object obj = ResourceManager.GetObject("BITMAP12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap BITMAP15 {
+            get {
+                object obj = ResourceManager.GetObject("BITMAP15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap BITMAP17 {
+            get {
+                object obj = ResourceManager.GetObject("BITMAP17", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
         internal static System.Drawing.Bitmap BITMAP2 {
             get {
                 object obj = ResourceManager.GetObject("BITMAP2", resourceCulture);
@@ -76,6 +136,56 @@ namespace IphoneButton.Properties {
         internal static System.Drawing.Bitmap BITMAP3 {
             get {
                 object obj = ResourceManager.GetObject("BITMAP3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap BITMAP4 {
+            get {
+                object obj = ResourceManager.GetObject("BITMAP4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap BITMAP5 {
+            get {
+                object obj = ResourceManager.GetObject("BITMAP5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap BITMAP7 {
+            get {
+                object obj = ResourceManager.GetObject("BITMAP7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap BITMAP8 {
+            get {
+                object obj = ResourceManager.GetObject("BITMAP8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap BITMAP9 {
+            get {
+                object obj = ResourceManager.GetObject("BITMAP9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

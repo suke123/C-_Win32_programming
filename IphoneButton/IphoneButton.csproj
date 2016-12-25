@@ -84,6 +84,42 @@
   <ItemGroup>
     <None Include="IPHONE BUTTON\BITMAP2.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="IPHONE BUTTON\BITMAP3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IPHONE BUTTON\BITMAP9.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IPHONE BUTTON\BITMAP8.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IPHONE BUTTON\BITMAP1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IPHONE BUTTON\BITMAP7.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IPHONE BUTTON\BITMAP15.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IPHONE BUTTON\BITMAP10.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IPHONE BUTTON\BITMAP5.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IPHONE BUTTON\BITMAP12.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IPHONE BUTTON\BITMAP11.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IPHONE BUTTON\BITMAP4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IPHONE BUTTON\BITMAP17.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
