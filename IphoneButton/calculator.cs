@@ -39,18 +39,18 @@ namespace IphoneButton
             else if (divButton.Checked)
             {
                 calcuText.Text = Convert.ToString(left) + "　÷　" + Convert.ToString(right);
-                resultText.Text = Convert.ToString(left / right);
+                resultText.Text = Convert.ToString((float)left / (float)right);
             }
             else if (perButton.Checked)
             {
                 calcuText.Text = Convert.ToString(left) + "　％　" + Convert.ToString(right);
-                resultText.Text = Convert.ToString(left % right);
+                resultText.Text = Convert.ToString((float)left % (float)right);
             }
         }
 
         private void quitButton_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
