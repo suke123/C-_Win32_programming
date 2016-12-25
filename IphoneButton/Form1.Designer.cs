@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
+            this.calendar = new System.Windows.Forms.Button();
+            this.watch = new System.Windows.Forms.Button();
+            this.picture = new System.Windows.Forms.Button();
+            this.music = new System.Windows.Forms.Button();
+            this.safari = new System.Windows.Forms.Button();
+            this.mail = new System.Windows.Forms.Button();
+            this.phone = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,109 +42,109 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.memo = new System.Windows.Forms.Button();
+            this.calculator = new System.Windows.Forms.Button();
+            this.camera = new System.Windows.Forms.Button();
+            this.map = new System.Windows.Forms.Button();
+            this.message = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
-            // button1
+            // calendar
             // 
-            this.button1.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP2;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.Location = new System.Drawing.Point(38, 98);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(61, 58);
-            this.button1.TabIndex = 0;
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button2_Click);
+            this.calendar.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP2;
+            this.calendar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.calendar.Cursor = System.Windows.Forms.Cursors.Default;
+            this.calendar.FlatAppearance.BorderSize = 0;
+            this.calendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.calendar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.calendar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.calendar.Location = new System.Drawing.Point(38, 98);
+            this.calendar.Margin = new System.Windows.Forms.Padding(0);
+            this.calendar.Name = "calendar";
+            this.calendar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.calendar.Size = new System.Drawing.Size(61, 58);
+            this.calendar.TabIndex = 0;
+            this.calendar.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.calendar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // watch
             // 
-            this.button2.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP3;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(104, 98);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(60, 58);
-            this.button2.TabIndex = 1;
-            this.button2.UseVisualStyleBackColor = true;
+            this.watch.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP3;
+            this.watch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.watch.FlatAppearance.BorderSize = 0;
+            this.watch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.watch.Location = new System.Drawing.Point(104, 98);
+            this.watch.Name = "watch";
+            this.watch.Size = new System.Drawing.Size(60, 58);
+            this.watch.TabIndex = 1;
+            this.watch.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // picture
             // 
-            this.button3.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP15;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(170, 98);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(60, 58);
-            this.button3.TabIndex = 2;
-            this.button3.UseVisualStyleBackColor = true;
+            this.picture.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP15;
+            this.picture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picture.FlatAppearance.BorderSize = 0;
+            this.picture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.picture.Location = new System.Drawing.Point(170, 98);
+            this.picture.Name = "picture";
+            this.picture.Size = new System.Drawing.Size(60, 58);
+            this.picture.TabIndex = 2;
+            this.picture.UseVisualStyleBackColor = true;
             // 
-            // button17
+            // music
             // 
-            this.button17.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP7;
-            this.button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button17.FlatAppearance.BorderSize = 0;
-            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.Location = new System.Drawing.Point(236, 480);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(60, 58);
-            this.button17.TabIndex = 19;
-            this.button17.UseVisualStyleBackColor = true;
+            this.music.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP7;
+            this.music.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.music.FlatAppearance.BorderSize = 0;
+            this.music.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.music.Location = new System.Drawing.Point(236, 480);
+            this.music.Name = "music";
+            this.music.Size = new System.Drawing.Size(60, 58);
+            this.music.TabIndex = 19;
+            this.music.UseVisualStyleBackColor = true;
             // 
-            // button18
+            // safari
             // 
-            this.button18.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP1;
-            this.button18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button18.FlatAppearance.BorderSize = 0;
-            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.Location = new System.Drawing.Point(170, 480);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(60, 58);
-            this.button18.TabIndex = 18;
-            this.button18.UseVisualStyleBackColor = true;
+            this.safari.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP1;
+            this.safari.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.safari.FlatAppearance.BorderSize = 0;
+            this.safari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.safari.Location = new System.Drawing.Point(170, 480);
+            this.safari.Name = "safari";
+            this.safari.Size = new System.Drawing.Size(60, 58);
+            this.safari.TabIndex = 18;
+            this.safari.UseVisualStyleBackColor = true;
             // 
-            // button19
+            // mail
             // 
-            this.button19.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP8;
-            this.button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button19.FlatAppearance.BorderSize = 0;
-            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button19.Location = new System.Drawing.Point(104, 480);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(60, 58);
-            this.button19.TabIndex = 17;
-            this.button19.UseVisualStyleBackColor = true;
+            this.mail.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP8;
+            this.mail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mail.FlatAppearance.BorderSize = 0;
+            this.mail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mail.Location = new System.Drawing.Point(104, 480);
+            this.mail.Name = "mail";
+            this.mail.Size = new System.Drawing.Size(60, 58);
+            this.mail.TabIndex = 17;
+            this.mail.UseVisualStyleBackColor = true;
             // 
-            // button20
+            // phone
             // 
-            this.button20.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP9;
-            this.button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button20.FlatAppearance.BorderSize = 0;
-            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button20.Location = new System.Drawing.Point(38, 480);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(61, 58);
-            this.button20.TabIndex = 16;
-            this.button20.UseVisualStyleBackColor = true;
+            this.phone.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP9;
+            this.phone.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.phone.FlatAppearance.BorderSize = 0;
+            this.phone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.phone.Location = new System.Drawing.Point(38, 480);
+            this.phone.Name = "phone";
+            this.phone.Size = new System.Drawing.Size(61, 58);
+            this.phone.TabIndex = 16;
+            this.phone.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -156,7 +156,6 @@
             this.label1.Size = new System.Drawing.Size(53, 15);
             this.label1.TabIndex = 20;
             this.label1.Text = "カレンダー";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -168,13 +167,13 @@
             this.label2.Size = new System.Drawing.Size(31, 15);
             this.label2.TabIndex = 21;
             this.label2.Text = "時計";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Gray;
             this.label3.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(53, 541);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 15);
@@ -184,8 +183,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Gray;
             this.label4.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(118, 541);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 15);
@@ -195,8 +195,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Gray;
             this.label5.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label5.Location = new System.Drawing.Point(180, 541);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 15);
@@ -206,8 +207,9 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Gray;
             this.label6.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Location = new System.Drawing.Point(238, 541);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 15);
@@ -226,66 +228,65 @@
             this.button9.TabIndex = 30;
             this.button9.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // memo
             // 
-            this.button4.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP10;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(235, 98);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(60, 58);
-            this.button4.TabIndex = 31;
-            this.button4.UseVisualStyleBackColor = true;
+            this.memo.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP10;
+            this.memo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.memo.FlatAppearance.BorderSize = 0;
+            this.memo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.memo.Location = new System.Drawing.Point(235, 98);
+            this.memo.Name = "memo";
+            this.memo.Size = new System.Drawing.Size(60, 58);
+            this.memo.TabIndex = 31;
+            this.memo.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // calculator
             // 
-            this.button5.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP5;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(39, 179);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(60, 58);
-            this.button5.TabIndex = 32;
-            this.button5.UseVisualStyleBackColor = true;
+            this.calculator.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP5;
+            this.calculator.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.calculator.FlatAppearance.BorderSize = 0;
+            this.calculator.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.calculator.Location = new System.Drawing.Point(39, 179);
+            this.calculator.Name = "calculator";
+            this.calculator.Size = new System.Drawing.Size(60, 58);
+            this.calculator.TabIndex = 32;
+            this.calculator.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // camera
             // 
-            this.button6.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP12;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(105, 179);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(60, 58);
-            this.button6.TabIndex = 33;
-            this.button6.UseVisualStyleBackColor = true;
+            this.camera.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP12;
+            this.camera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.camera.FlatAppearance.BorderSize = 0;
+            this.camera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.camera.Location = new System.Drawing.Point(105, 179);
+            this.camera.Name = "camera";
+            this.camera.Size = new System.Drawing.Size(60, 58);
+            this.camera.TabIndex = 33;
+            this.camera.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // map
             // 
-            this.button7.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP11;
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(171, 179);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(60, 58);
-            this.button7.TabIndex = 34;
-            this.button7.UseVisualStyleBackColor = true;
+            this.map.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP11;
+            this.map.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.map.FlatAppearance.BorderSize = 0;
+            this.map.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.map.Location = new System.Drawing.Point(171, 179);
+            this.map.Name = "map";
+            this.map.Size = new System.Drawing.Size(60, 58);
+            this.map.TabIndex = 34;
+            this.map.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // message
             // 
-            this.button8.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP4;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(237, 179);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(60, 58);
-            this.button8.TabIndex = 35;
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.message.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP4;
+            this.message.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.message.FlatAppearance.BorderSize = 0;
+            this.message.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.message.Location = new System.Drawing.Point(237, 179);
+            this.message.Name = "message";
+            this.message.Size = new System.Drawing.Size(60, 58);
+            this.message.TabIndex = 35;
+            this.message.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -353,25 +354,33 @@
             this.label12.TabIndex = 41;
             this.label12.Text = "メッセージ";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(56, 308);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(121, 19);
+            this.dateTimePicker1.TabIndex = 42;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Yellow;
-            this.BackgroundImage = global::IphoneButton.Properties.Resources.iphone画面;
+            this.BackgroundImage = global::IphoneButton.Properties.Resources.iphone画面1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(336, 635);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.message);
+            this.Controls.Add(this.map);
+            this.Controls.Add(this.camera);
+            this.Controls.Add(this.calculator);
+            this.Controls.Add(this.memo);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -379,13 +388,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button17);
-            this.Controls.Add(this.button18);
-            this.Controls.Add(this.button19);
-            this.Controls.Add(this.button20);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.music);
+            this.Controls.Add(this.safari);
+            this.Controls.Add(this.mail);
+            this.Controls.Add(this.phone);
+            this.Controls.Add(this.picture);
+            this.Controls.Add(this.watch);
+            this.Controls.Add(this.calendar);
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.DoubleBuffered = true;
             this.Name = "Form1";
@@ -398,13 +407,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button calendar;
+        private System.Windows.Forms.Button watch;
+        private System.Windows.Forms.Button picture;
+        private System.Windows.Forms.Button music;
+        private System.Windows.Forms.Button safari;
+        private System.Windows.Forms.Button mail;
+        private System.Windows.Forms.Button phone;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -412,17 +421,18 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button memo;
+        private System.Windows.Forms.Button calculator;
+        private System.Windows.Forms.Button camera;
+        private System.Windows.Forms.Button map;
+        private System.Windows.Forms.Button message;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 
