@@ -76,6 +76,7 @@
             // 
             this.watch.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP3;
             this.watch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.watch.Cursor = System.Windows.Forms.Cursors.Default;
             this.watch.FlatAppearance.BorderSize = 0;
             this.watch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.watch.Location = new System.Drawing.Point(104, 98);
@@ -88,6 +89,7 @@
             // 
             this.picture.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP15;
             this.picture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picture.Cursor = System.Windows.Forms.Cursors.Default;
             this.picture.FlatAppearance.BorderSize = 0;
             this.picture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.picture.Location = new System.Drawing.Point(170, 98);
@@ -100,6 +102,7 @@
             // 
             this.music.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP7;
             this.music.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.music.Cursor = System.Windows.Forms.Cursors.Default;
             this.music.FlatAppearance.BorderSize = 0;
             this.music.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.music.Location = new System.Drawing.Point(236, 480);
@@ -112,6 +115,7 @@
             // 
             this.safari.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP1;
             this.safari.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.safari.Cursor = System.Windows.Forms.Cursors.Default;
             this.safari.FlatAppearance.BorderSize = 0;
             this.safari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.safari.Location = new System.Drawing.Point(170, 480);
@@ -124,6 +128,7 @@
             // 
             this.mail.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP8;
             this.mail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mail.Cursor = System.Windows.Forms.Cursors.Default;
             this.mail.FlatAppearance.BorderSize = 0;
             this.mail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mail.Location = new System.Drawing.Point(104, 480);
@@ -136,6 +141,7 @@
             // 
             this.phone.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP9;
             this.phone.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.phone.Cursor = System.Windows.Forms.Cursors.Default;
             this.phone.FlatAppearance.BorderSize = 0;
             this.phone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.phone.Location = new System.Drawing.Point(38, 480);
@@ -147,6 +153,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Default;
             this.label1.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(43, 159);
@@ -158,6 +165,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Default;
             this.label2.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(118, 159);
@@ -170,6 +178,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Gray;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Default;
             this.label3.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(53, 541);
@@ -182,6 +191,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Gray;
+            this.label4.Cursor = System.Windows.Forms.Cursors.Default;
             this.label4.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(118, 541);
@@ -194,6 +204,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Gray;
+            this.label5.Cursor = System.Windows.Forms.Cursors.Default;
             this.label5.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label5.Location = new System.Drawing.Point(180, 541);
@@ -206,6 +217,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Gray;
+            this.label6.Cursor = System.Windows.Forms.Cursors.Default;
             this.label6.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Location = new System.Drawing.Point(238, 541);
@@ -218,6 +230,7 @@
             // 
             this.button9.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP17;
             this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button9.Cursor = System.Windows.Forms.Cursors.Default;
             this.button9.FlatAppearance.BorderSize = 0;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Location = new System.Drawing.Point(137, 565);
@@ -230,6 +243,7 @@
             // 
             this.memo.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP10;
             this.memo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.memo.Cursor = System.Windows.Forms.Cursors.Default;
             this.memo.FlatAppearance.BorderSize = 0;
             this.memo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.memo.Location = new System.Drawing.Point(235, 98);
@@ -242,6 +256,7 @@
             // 
             this.calculator.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP5;
             this.calculator.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.calculator.Cursor = System.Windows.Forms.Cursors.Default;
             this.calculator.FlatAppearance.BorderSize = 0;
             this.calculator.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.calculator.Location = new System.Drawing.Point(39, 179);
@@ -255,6 +270,7 @@
             // 
             this.camera.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP12;
             this.camera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.camera.Cursor = System.Windows.Forms.Cursors.Default;
             this.camera.FlatAppearance.BorderSize = 0;
             this.camera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.camera.Location = new System.Drawing.Point(105, 179);
@@ -267,6 +283,7 @@
             // 
             this.map.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP11;
             this.map.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.map.Cursor = System.Windows.Forms.Cursors.Default;
             this.map.FlatAppearance.BorderSize = 0;
             this.map.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.map.Location = new System.Drawing.Point(171, 179);
@@ -279,6 +296,7 @@
             // 
             this.message.BackgroundImage = global::IphoneButton.Properties.Resources.BITMAP4;
             this.message.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.message.Cursor = System.Windows.Forms.Cursors.Default;
             this.message.FlatAppearance.BorderSize = 0;
             this.message.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.message.Location = new System.Drawing.Point(237, 179);
@@ -290,6 +308,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Cursor = System.Windows.Forms.Cursors.Default;
             this.label7.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label7.Location = new System.Drawing.Point(184, 159);
@@ -301,6 +320,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Cursor = System.Windows.Forms.Cursors.Default;
             this.label8.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label8.Location = new System.Drawing.Point(250, 159);
@@ -312,6 +332,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Cursor = System.Windows.Forms.Cursors.Default;
             this.label9.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label9.Location = new System.Drawing.Point(48, 241);
@@ -323,6 +344,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.Cursor = System.Windows.Forms.Cursors.Default;
             this.label10.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label10.Location = new System.Drawing.Point(118, 240);
@@ -334,6 +356,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.Cursor = System.Windows.Forms.Cursors.Default;
             this.label11.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label11.Location = new System.Drawing.Point(183, 241);
@@ -345,6 +368,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.Cursor = System.Windows.Forms.Cursors.Default;
             this.label12.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label12.Location = new System.Drawing.Point(242, 241);
@@ -386,11 +410,10 @@
             this.Controls.Add(this.picture);
             this.Controls.Add(this.watch);
             this.Controls.Add(this.calendar);
-            this.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "IphoneButton";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
