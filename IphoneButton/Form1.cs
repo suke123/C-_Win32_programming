@@ -23,5 +23,11 @@ namespace IphoneButton
             calculator.Show();
         }
 
+        private void watch_Click(object sender, EventArgs e)
+        {
+            Form watch = new watch();
+            watch.Show();
+        }
+
     }
 }

@@ -58,6 +58,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="watch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="watch.Designer.cs">
+      <DependentUpon>watch.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="calculator.resx">
       <DependentUpon>calculator.cs</DependentUpon>
     </EmbeddedResource>
@@ -74,6 +80,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="watch.resx">
+      <DependentUpon>watch.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

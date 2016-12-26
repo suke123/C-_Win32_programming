@@ -84,6 +84,7 @@
             this.watch.Size = new System.Drawing.Size(60, 58);
             this.watch.TabIndex = 1;
             this.watch.UseVisualStyleBackColor = true;
+            this.watch.Click += new System.EventHandler(this.watch_Click);
             // 
             // picture
             // 
