@@ -16,13 +16,19 @@ namespace IphoneButton
         {
             InitializeComponent();
 
-            dateText.Text = DateTime.Now.ToString("yyyy年MM月dd日");
-            timeText.Text = DateTime.Now.ToString("hh時mm分ss秒");
+            dateText.Text = DateTime.Now.ToString("yyyy年MM月dd日(ddd)");
+            timeText.Text = DateTime.Now.ToString("hh：mm：ss");
         }
 
         private void quitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            dateText.Text = DateTime.Now.ToString("yyyy年MM月dd日(ddd)");
+            timeText.Text = DateTime.Now.ToString("hh：mm：ss");
         }
 
     }
