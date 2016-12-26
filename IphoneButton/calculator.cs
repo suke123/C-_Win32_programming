@@ -23,27 +23,27 @@ namespace IphoneButton
             int right = Convert.ToInt32(rightText.Text);
 
             if(addButton.Checked){
-                calcuText.Text = leftText.Text + "　＋　" + rightText.Text;
+                calcuText.Text = leftText.Text + "＋" + rightText.Text;
                 resultText.Text = Convert.ToString(left + right);
             }
             else if (subButton.Checked)
             {
-                calcuText.Text = leftText.Text + "　－　" + rightText.Text;
+                calcuText.Text = leftText.Text + "－" + rightText.Text;
                 resultText.Text = Convert.ToString(left - right);
             }
             else if (mulButton.Checked)
             {
-                calcuText.Text = leftText.Text + "　×　" + rightText.Text;
+                calcuText.Text = leftText.Text + "×" + rightText.Text;
                 resultText.Text = Convert.ToString(left * right);
             }
             else if (divButton.Checked)
             {
-                calcuText.Text = leftText.Text + "　÷　" + rightText.Text;
+                calcuText.Text = leftText.Text + "÷" + rightText.Text;
                 resultText.Text = Convert.ToString((float)left / (float)right);
             }
             else if (perButton.Checked)
             {
-                calcuText.Text = leftText.Text + "　％　" + rightText.Text;
+                calcuText.Text = leftText.Text + "％" + rightText.Text;
                 resultText.Text = Convert.ToString((float)left % (float)right);
             }
         }

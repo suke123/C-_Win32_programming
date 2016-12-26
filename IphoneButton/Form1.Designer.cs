@@ -98,6 +98,7 @@
             this.picture.Size = new System.Drawing.Size(60, 58);
             this.picture.TabIndex = 2;
             this.picture.UseVisualStyleBackColor = true;
+            this.picture.Click += new System.EventHandler(this.picture_Click);
             // 
             // music
             // 

@@ -29,5 +29,11 @@ namespace IphoneButton
             watch.Show();
         }
 
+        private void picture_Click(object sender, EventArgs e)
+        {
+            Form pictures = new pictures();
+            pictures.Show();
+        }
+
     }
 }
