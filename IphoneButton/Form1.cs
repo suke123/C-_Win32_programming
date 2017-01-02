@@ -1,7 +1,4 @@
-﻿/*-----------------------------------------------
-Form01.cs    iphoneのボタンアクションを制御する
--------------------------------------------------*/
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
